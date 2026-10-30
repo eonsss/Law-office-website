@@ -35,7 +35,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
 <footer class="footer">
   <div class="wrap foot-in">
     <img src="img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
-    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 · 전화 {TEL} · 팩스 055-224-2064 · byryu210@gmail.com</p>
+    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층 · 전화 {TEL} · 팩스 055-224-2064 · byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
   </div>
 </footer>
@@ -166,7 +166,7 @@ admin = head('행정사 업무', '행정 서류도 함께 도와드립니다', '
 page('admin.html', '행정사 업무', '행정심판 청구서 작성, 각종 인허가·신고 서류 작성 등 행정사 업무 안내.', admin)
 
 # ---------- 비용 안내 (계산기 포함)
-fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>법무사보수표(2020. 7. 23. 시행)</b>의 기본보수 상한액 산정 방법으로 계산합니다.') + '''
+fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>대한법무사협회 법무사보수표(2026. 8. 20. 자료 기준)</b>의 기본보수 상한액 산정 방법으로 계산합니다.') + '''
 <section class="section"><div class="wrap">
     <div class="calc reveal">
       <div class="field"><label for="kind">업무 종류</label><select id="kind"></select></div>
@@ -205,7 +205,7 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다', '평일�
       <li><span>팩스</span>055-224-2064</li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
-      <li><span>위치</span>창원시 마산합포구 3·15대로<br>창원지방법원 마산지원 도보 1분</li>
+      <li><span>위치</span>창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</li>
     </ul>
     <div class="cta"><a class="btn" href="tel:0552862064">전화하기</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
