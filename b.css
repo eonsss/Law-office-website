@@ -100,3 +100,21 @@
   .hbtns{gap:6px}.hbtns .btn-sm{padding:0 10px;font-size:13px}
   .nav-in{gap:8px}
 }
+/* 브랜드 더 크게 */
+.nav-in{height:84px}
+.brand{gap:12px}
+.brand img{width:62px}
+.bt b{font-size:26px}
+.bt small{font-size:18px}
+@media(min-width:620px){.bt b{font-size:32px}.bt small{font-size:22px}.brand img{width:70px}.nav-in{height:92px}}
+@media(max-width:389px){.brand img{width:50px}.bt b{font-size:22px}.bt small{font-size:14px}.hbtns .btn-sm{padding:0 9px;font-size:12.5px}.nav-in{height:76px}}
+html{scroll-padding-top:100px}
+/* 푸터 로고 2배 */
+.foot-logo{width:192px!important;height:192px!important}
+@media(max-width:619px){.foot-in{flex-direction:column}}
+/* 겹침 보정 */
+.bmenu{gap:18px}.bmenu a{white-space:nowrap}
+@media(max-width:619px){.brand img{width:56px}.bt b{font-size:24px}.bt small{font-size:16px}.hbtns{gap:6px}.hbtns .btn-sm{padding:0 10px;font-size:13px}}
+@media(max-width:389px){.brand img{width:50px}.bt b{font-size:22px}.bt small{font-size:14px}.hbtns .btn-sm{padding:0 9px;font-size:12.5px}}
+@media(min-width:820px) and (max-width:1099px){.bmenu{display:none}.tabs{display:flex}}
+@media(min-width:1100px){.bmenu{display:flex}.tabs{display:none}.bt b{font-size:28px}.bt small{font-size:19px}.brand img{width:62px}.nav-in{height:88px}}
