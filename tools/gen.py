@@ -120,7 +120,7 @@ home = f'''
 page('index.html', '마산 경매·개인회생·상속등기', '창원지방법원 마산지원 도보 1분. 부동산 경매입찰·등기, 개인회생·파산, 상속 서류 작성을 법무사·행정사가 직접 상담합니다.', home)
 
 # ---------- 소개
-about = head('사무소 소개', '쉬운 말로 차근차근 안내하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
+about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
 <section class="section"><div class="wrap about">
   <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
   <div class="about-text">
