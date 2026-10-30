@@ -170,3 +170,6 @@ html{scroll-padding-top:100px}
  .consult{padding:24px 20px}
  .tbl-wrap{margin-inline:-4px}
 }
+.fabs{position:static!important;left:auto;right:auto;bottom:auto;margin-top:24px}
+.fabs a{box-shadow:none!important;height:52px}
+.footer{padding-bottom:48px!important}
