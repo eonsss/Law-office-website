@@ -35,7 +35,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
 <footer class="footer">
   <div class="wrap foot-in">
     <img src="img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
-    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층 · 전화 {TEL} · 팩스 055-224-2064 · byryu210@gmail.com</p>
+    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층 · 전화 {TEL} · 휴대폰 010-2851-2064 · 팩스 055-224-2064 · byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
   </div>
 </footer>
@@ -88,7 +88,7 @@ home = f'''
       <p class="eyebrow">대표 소개</p>
       <h2>유병열 법무사·행정사</h2>
       <p class="lead2">서류 하나하나를 직접 확인하고, 처음 오신 분도 이해할 수 있게 설명드립니다.</p>
-      <ul class="badges"><li>법무사 2023년 합격</li><li>행정사 2021년 합격</li><li>경남지방법무사회 소속</li></ul>
+      <ul class="badges"><li>법무사</li><li>행정사</li><li>경남지방법무사회 소속</li></ul>
       <a class="btn" href="about.html">대표 소개 더 보기</a>
     </div>
   </div>
@@ -120,7 +120,7 @@ home = f'''
 page('index.html', '마산 경매·개인회생·상속등기', '창원지방법원 마산지원 도보 1분. 부동산 경매입찰·등기, 개인회생·파산, 상속 서류 작성을 법무사·행정사가 직접 상담합니다.', home)
 
 # ---------- 소개
-about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
+about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법무사·행정사', '2023년부터 현 위치에서 운영중입니다.') + '''
 <section class="section"><div class="wrap about">
   <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
   <div class="about-text">
@@ -128,9 +128,9 @@ about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법
     <p class="lead2">처음 오신 분도 이해할 수 있게 쉬운 말로 설명드립니다.</p>
     <dl class="career">
       <div><dt>학력</dt><dd>마산상업고등학교 졸업<br>한국방송통신대학교 법학 전공</dd></div>
-      <div><dt>자격</dt><dd>행정사 2021년 합격<br>법무사 2023년 합격</dd></div>
+      <div><dt>자격</dt><dd>법무사<br>행정사</dd></div>
       <div><dt>소속</dt><dd>경남지방법무사회</dd></div>
-      <div><dt>사무소</dt><dd>2023년부터 운영</dd></div>
+      <div><dt>사무소</dt><dd>2023년부터 현 위치에서 운영중</dd></div>
     </dl>
   </div>
 </div></section>
@@ -178,9 +178,9 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
       <div class="result" id="result" aria-live="polite"><span class="r-label">예상 기본보수 (<b class="hl">상한액</b>)</span><strong class="r-value" id="rValue">금액을 입력해 주세요</strong><span class="r-sub" id="rSub"></span></div>
     </div>
     <ul class="fine">
-      <li>본 표는 기본보수의 <b class="hl">상한액</b>입니다. 개별 사건에서는 법무사보수기준에 따라 가산되거나 감액될 수 있습니다.</li>
+      <li>표의 금액은 기본보수의 <b class="hl">상한액</b>이며, 사건의 내용에 따라 달라질 수 있습니다. 정확한 금액은 상담 후 안내해 드립니다.</li>
       <li>부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</li>
-      <li>실제 보수는 사안별 상담 후 확정됩니다. 계산 결과는 참고용입니다.</li>
+      <li>계산 결과는 참고용입니다.</li>
     </ul>
     <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
 </div></section>
@@ -197,15 +197,17 @@ cases = head('사례·후기', '처리 사례와 후기', '의뢰인 정보가 �
 page('cases.html', '사례·후기', '유병열 법무사·행정사 사무소의 처리 사례와 블로그.', cases)
 
 # ---------- 상담 문의
-contact = head('상담 문의', '전화 한 통이면 충분합니다', '평일에 전화나 방문으로 편하게 문의해 주세요.') + f'''
+contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
 <section class="section"><div class="wrap visit">
   <div>
     <ul class="info">
       <li><span>전화</span><a href="tel:0552862064">{TEL}</a></li>
+      <li><span>휴대폰</span><div><a href="tel:01028512064">010-2851-2064</a><p class="hours-note"><a class="tl" href="sms:01028512064">문자 보내기</a></p></div></li>
+      <li><span>영업시간</span><div class="hours"><p><b>(평일)</b> 09시 ~ 18시</p><p><b>(주말)</b> 09시 ~ 13시</p><p class="hours-note">전화, 문자로 영업시간 외에도 상담 가능합니다.</p></div></li>
       <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
-      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
+      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 방문 전에 <b>전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
     <div class="cta"><a class="btn" href="tel:0552862064">전화하기</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
