@@ -118,3 +118,9 @@ html{scroll-padding-top:100px}
 @media(max-width:389px){.brand img{width:50px}.bt b{font-size:22px}.bt small{font-size:14px}.hbtns .btn-sm{padding:0 9px;font-size:12.5px}}
 @media(min-width:820px) and (max-width:1099px){.bmenu{display:none}.tabs{display:flex}}
 @media(min-width:1100px){.bmenu{display:flex}.tabs{display:none}.bt b{font-size:28px}.bt small{font-size:19px}.brand img{width:62px}.nav-in{height:88px}}
+/* 브랜드 한 단계 더 크게 + 띄어쓰기 */
+.bt{gap:5px}
+@media(min-width:620px){.bt{gap:14px}.bt b{font-size:38px}.bt small{font-size:26px}.brand img{width:82px}.nav-in{height:98px}}
+@media(max-width:619px){.brand img{width:62px}.bt b{font-size:26px}.bt small{font-size:17.5px}.nav-in{height:88px}}
+@media(max-width:389px){.brand img{width:54px}.bt b{font-size:23px}.bt small{font-size:15px}.nav-in{height:80px}}
+@media(min-width:1100px){.bt{gap:12px}.bt b{font-size:30px}.bt small{font-size:20px}.brand img{width:70px}.bmenu{gap:14px}.nav-in{height:92px}}
