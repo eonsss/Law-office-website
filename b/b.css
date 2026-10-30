@@ -1,0 +1,35 @@
+/* B 버전 추가 스타일 */
+.bmenu a.on{color:var(--navy);font-weight:700}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 0 10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{flex:none;font-size:14px;font-weight:600;color:var(--ink2);padding:7px 13px;border-radius:999px;background:var(--tint)}
+.tabs a.on{background:var(--navy);color:#fff}
+@media(min-width:820px){.tabs{display:none}}
+.phead{padding:56px 0 8px;background:linear-gradient(180deg,#fff,#f5f6fb)}
+.phead h1{font-size:clamp(30px,5.4vw,52px);line-height:1.25;font-weight:800;letter-spacing:-.035em}
+.phead .sub{font-size:18px}
+.card.link{display:block}
+.card .more{display:inline-block;margin-top:14px;color:var(--navy);font-weight:600;font-size:15px}
+.tl{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.badges li{background:#fff;border-radius:999px;padding:8px 16px;font-weight:600;font-size:15px;color:var(--navy);box-shadow:0 1px 0 var(--line)}
+.steps{display:grid;gap:28px}
+.flow{display:grid;gap:12px;counter-reset:s}
+.flow li{counter-increment:s;background:var(--tint);border-radius:20px;padding:22px 24px;display:grid;gap:4px}
+.flow li::before{content:counter(s);color:var(--gold);font-weight:800}
+.flow b{font-size:19px}.flow span{color:var(--ink2)}
+@media(min-width:820px){.flow{grid-template-columns:repeat(4,1fr)}}
+.svcs{display:grid;gap:16px}
+.svc{background:var(--tint);border-radius:var(--r);padding:32px 28px;scroll-margin-top:90px}
+.svc-h{display:flex;align-items:baseline;gap:12px}
+.svc-h h2{font-size:26px}
+.svc .num{color:var(--gold);font-weight:700}
+.svc-who{margin:10px 0 16px;color:var(--ink2)}
+.check{display:grid;gap:8px}
+.check li{padding-left:28px;position:relative;font-size:17px}
+.check li::before{content:'';position:absolute;left:4px;top:.55em;width:10px;height:6px;border-left:2.5px solid var(--navy);border-bottom:2.5px solid var(--navy);transform:rotate(-45deg)}
+.svc-note{margin-top:16px;color:var(--ink3);font-size:14px}
+.ctabox{display:grid;gap:22px;align-items:center}
+@media(min-width:820px){.ctabox{grid-template-columns:1fr auto}}
+.empty{background:var(--tint);border-radius:var(--r);padding:48px 28px;text-align:center;display:grid;gap:10px;justify-items:center}
+.empty h3{font-size:22px}.empty p{color:var(--ink2);margin-bottom:12px}
