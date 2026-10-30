@@ -160,3 +160,13 @@ html{scroll-padding-top:100px}
 .ex{display:inline-block;background:#fdecef;color:#d6336c;font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
 .ex-note{margin:0 0 20px;font-size:16px;color:var(--ink2)}
 .cards .card p{margin-top:8px}
+/* mobile polish */
+.nb{white-space:nowrap}
+@media(max-width:560px){
+ .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;overflow:visible}
+ .tabs a{text-align:center;padding:10px 4px;font-size:15px}
+ .slider{max-width:none}
+ .sl-btn{width:44px;height:44px}
+ .consult{padding:24px 20px}
+ .tbl-wrap{margin-inline:-4px}
+}
