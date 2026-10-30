@@ -2,10 +2,9 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261030g'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261030h'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
-GMAP = 'https://maps.google.com/maps?q=%EC%9C%A0%EB%B3%91%EC%97%B4%20%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%82%AC%EB%AC%B4%EC%86%8C%20%EC%B0%BD%EC%9B%90%EC%8B%9C%20%EB%A7%88%EC%82%B0%ED%95%A9%ED%8F%AC%EA%B5%AC%203%C2%B715%EB%8C%80%EB%A1%9C&hl=ko&z=17&output=embed'
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
 
 def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>'):
@@ -37,7 +36,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>'
 <footer class="footer">
   <div class="wrap foot-in">
     <div class="foot-text">
-    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층<br>전화 {TEL} · 휴대폰 010-0000-0000<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
+    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>전화 {TEL} · 휴대폰 010-0000-0000<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
     </div>
     <img class="foot-logo" src="img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
@@ -118,7 +117,7 @@ home = f'''
       <p class="sub">창원시 마산합포구 3·15대로변, 창원지방법원 마산지원에서 도보 1분 거리입니다.</p>
       <div class="cta" style="margin-top:24px"><a class="btn" href="{MAP}" target="_blank" rel="noopener">네이버 지도에서 보기</a><a class="btn btn-ghost" href="contact.html">연락처 보기</a></div>
     </div>
-    <div class="map reveal"><iframe title="사무소 위치 지도 (확대·축소 가능)" src="{GMAP}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
   </div>
 </section>
 '''
@@ -212,12 +211,12 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
       <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
-      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
+      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
     <div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01000000000" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
   </div>
-  <div class="map reveal"><iframe title="사무소 위치 지도 (확대·축소 가능)" src="{GMAP}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+  <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
 </div></section>'''
 page('contact.html', '상담 문의', '유병열 법무사·행정사 사무소 연락처와 오시는 길.', contact)
 print('ok')
