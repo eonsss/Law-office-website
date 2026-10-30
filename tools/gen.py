@@ -1,6 +1,6 @@
 # B 버전 페이지 생성기: 기획안의 메뉴 6개 구조(소개/법무사 업무/행정사 업무/비용 안내/사례·후기/상담 문의)
 import os
-OUT = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
@@ -15,15 +15,15 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} | 유병열 법무사·행정사 사무소</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="../img/emblem.jpg">
+<link rel="icon" href="img/emblem.jpg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="b.css">
 </head>
 <body>
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="index.html" aria-label="유병열 법무사·행정사 사무소 홈"><img src="../img/emblem.jpg" alt="" width="34" height="32"><span>유병열 법무사·행정사</span></a>
+    <a class="brand" href="index.html" aria-label="유병열 법무사·행정사 사무소 홈"><img src="img/emblem.jpg" alt="" width="34" height="32"><span>유병열 법무사·행정사</span></a>
     <nav class="menu bmenu">{menu}</nav>
     <a class="btn btn-sm" href="tel:0552862064">전화 상담</a>
   </div>
@@ -34,7 +34,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
 </main>
 <footer class="footer">
   <div class="wrap foot-in">
-    <img src="../img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
+    <img src="img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
     <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 · 전화 {TEL} · 팩스 055-224-2064 · byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
   </div>
@@ -64,7 +64,7 @@ home = f'''
     <p class="lead reveal">부동산 경매입찰과 등기, 개인회생·파산, 상속까지.<br class="pc">법무사·행정사가 직접 상담하고 직접 작성합니다.</p>
     <div class="cta reveal"><a class="btn" href="tel:0552862064">{TEL} 전화하기</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
   </div>
-  <div class="wrap hero-photo reveal"><img src="../img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
+  <div class="wrap hero-photo reveal"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
 </section>
 
 <section class="section">
@@ -83,7 +83,7 @@ home = f'''
 
 <section class="section tinted">
   <div class="wrap about">
-    <div class="about-photo reveal"><img src="../img/ceo.jpg" alt="유병열 법무사·행정사" loading="lazy" width="506" height="900"></div>
+    <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" loading="lazy" width="506" height="900"></div>
     <div class="about-text">
       <p class="eyebrow">대표 소개</p>
       <h2>유병열 법무사·행정사</h2>
@@ -113,7 +113,7 @@ home = f'''
       <p class="sub">창원시 마산합포구 3·15대로변, 창원지방법원 마산지원에서 도보 1분 거리입니다.</p>
       <div class="cta" style="margin-top:24px"><a class="btn" href="{MAP}" target="_blank" rel="noopener">네이버 지도에서 보기</a><a class="btn btn-ghost" href="contact.html">연락처 보기</a></div>
     </div>
-    <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="../img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
+    <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
   </div>
 </section>
 '''
@@ -122,7 +122,7 @@ page('index.html', '마산 경매·개인회생·상속등기', '창원지방법
 # ---------- 소개
 about = head('사무소 소개', '서류를 직접 확인하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
 <section class="section"><div class="wrap about">
-  <div class="about-photo reveal"><img src="../img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
+  <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
   <div class="about-text">
     <h2>유병열</h2>
     <p class="lead2">처음 오신 분도 이해할 수 있게 쉬운 말로 설명드립니다.</p>
@@ -137,10 +137,10 @@ about = head('사무소 소개', '서류를 직접 확인하는 법무사·행�
 <section class="section tinted"><div class="wrap">
   <p class="eyebrow">사무소 둘러보기</p><h2>편하게 들러 상담하세요</h2>
   <div class="gallery">
-    <img class="reveal" src="../img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy">
-    <img class="reveal" src="../img/interior.jpg" alt="사무소 상담 공간" loading="lazy">
-    <img class="reveal" src="../img/shelf.jpg" alt="법률 서적이 꽂힌 사무소 서가" loading="lazy">
-    <img class="reveal" src="../img/street.jpg" alt="3·15대로 간판과 사무소 입구" loading="lazy">
+    <img class="reveal" src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy">
+    <img class="reveal" src="img/interior.jpg" alt="사무소 상담 공간" loading="lazy">
+    <img class="reveal" src="img/shelf.jpg" alt="법률 서적이 꽂힌 사무소 서가" loading="lazy">
+    <img class="reveal" src="img/street.jpg" alt="3·15대로 간판과 사무소 입구" loading="lazy">
   </div>
 </div></section>''' + CTA
 page('about.html', '사무소 소개', '유병열 법무사·행정사 대표 소개와 사무소 안내. 경남지방법무사회 소속.', about)
@@ -186,7 +186,7 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
 </div></section>
 <section class="section tinted"><div class="wrap"><p class="eyebrow">자주 받는 질문</p><h2>자주 묻는 질문</h2><p class="sub">자주 받는 질문은 곧 등록할 예정입니다. 궁금한 점은 전화로 편하게 문의해 주세요.</p></div></section>''' + CTA
 page('fees.html', '비용 안내와 보수 계산기', '법무사보수표 기준 예상 보수 계산기와 상담 비용 안내.', fees,
-     '<script src="../calc.js"></script><script src="../main.js"></script>')
+     '<script src="calc.js"></script><script src="main.js"></script>')
 
 # ---------- 사례·후기
 cases = head('사례·후기', '처리 사례와 후기', '의뢰인 정보가 드러나지 않도록 동의를 받은 내용만 게시합니다.') + '''
@@ -210,7 +210,7 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다', '평일�
     <div class="cta"><a class="btn" href="tel:0552862064">전화하기</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
   </div>
-  <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="../img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
+  <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>
 </div></section>'''
 page('contact.html', '상담 문의', '유병열 법무사·행정사 사무소 연락처와 오시는 길.', contact)
 print('ok')
