@@ -44,3 +44,18 @@
     open(a.getAttribute('data-pop'), a);
   });
 })();
+
+// 푸터 로고의 높이를 푸터 글 블록의 높이에 맞춘다 (넓은 화면에서만).
+(function () {
+  var t = document.querySelector('.foot-text'), l = document.querySelector('.foot-logo');
+  if (!t || !l) return;
+  function fit() {
+    if (window.innerWidth < 620) { l.style.width = l.style.height = ''; return; }
+    var h = Math.round(t.getBoundingClientRect().height);
+    l.style.setProperty('width', h + 'px', 'important');
+    l.style.setProperty('height', h + 'px', 'important');
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+})();

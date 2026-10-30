@@ -124,3 +124,8 @@ html{scroll-padding-top:100px}
 @media(max-width:619px){.brand img{width:62px}.bt b{font-size:26px}.bt small{font-size:17.5px}.nav-in{height:88px}}
 @media(max-width:389px){.brand img{width:54px}.bt b{font-size:23px}.bt small{font-size:15px}.nav-in{height:80px}}
 @media(min-width:1100px){.bt{gap:12px}.bt b{font-size:30px}.bt small{font-size:20px}.brand img{width:70px}.bmenu{gap:14px}.nav-in{height:92px}}
+/* 푸터 로고 높이 = 푸터 글 블록 높이 (pop.js에서 맞춤) */
+.foot-in{align-items:flex-start!important}
+.foot-text{flex:none;max-width:560px}
+.foot-logo{width:150px!important;height:150px!important;max-width:none}
+@media(max-width:619px){.foot-in{flex-direction:column!important;gap:20px}.foot-text{max-width:100%}.foot-logo{width:140px!important;height:140px!important}}
