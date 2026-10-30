@@ -2,7 +2,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261030s'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261030t'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
@@ -36,7 +36,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>'
 <footer class="footer">
   <div class="wrap foot-in">
     <div class="foot-text">
-    <p>유병열 법무사·행정사 사무소<br>경남지방법무사회 · 대한법무사협회 · 대한행정사회 소속<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>전화 {TEL} · 휴대폰 010-0000-0000<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
+    <p>유병열 법무사·행정사 사무소<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>전화 {TEL} · 휴대폰 010-0000-0000<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
     </div>
     <img class="foot-logo" src="img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
