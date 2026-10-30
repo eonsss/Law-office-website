@@ -2,7 +2,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261031c'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261031d'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
@@ -91,7 +91,7 @@ home = f'''
       <div class="slides">
         <img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900">
         <img src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy" width="900" height="1200">
-        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="430" height="430" style="object-position:center 30%">
+        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="1000" height="1000" style="object-position:center 18%">
       </div>
       <button type="button" class="sl-btn prev" aria-label="이전 사진">‹</button>
       <button type="button" class="sl-btn next" aria-label="다음 사진">›</button>
@@ -139,7 +139,7 @@ about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법
       <div class="slides">
         <img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900">
         <img src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy" width="900" height="1200">
-        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="430" height="430" style="object-position:center 30%">
+        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="1000" height="1000" style="object-position:center 18%">
       </div>
       <button type="button" class="sl-btn prev" aria-label="이전 사진">‹</button>
       <button type="button" class="sl-btn next" aria-label="다음 사진">›</button>
