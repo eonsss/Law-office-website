@@ -150,3 +150,13 @@ html{scroll-padding-top:100px}
 .sl-dots i.on{background:#fff;width:18px;border-radius:4px}
 .hero-photo img{aspect-ratio:4/3!important}
 @media(min-width:720px){.hero-photo img{aspect-ratio:3/2!important}}
+.qas{margin-top:28px;display:grid;gap:10px}
+.qa{background:#fff;border-radius:18px;padding:0 22px;box-shadow:0 8px 28px -22px rgba(25,31,40,.3)}
+.qa summary{cursor:pointer;list-style:none;padding:20px 28px 20px 0;font-size:18px;font-weight:700;position:relative}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:'+';position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:24px;color:var(--navy);font-weight:500}
+.qa[open] summary::after{content:'–'}
+.qa p{padding:0 0 22px;color:var(--ink2);font-size:17px}
+.ex{display:inline-block;background:#fdecef;color:#d6336c;font-weight:700;font-size:13px;padding:3px 10px;border-radius:999px}
+.ex-note{margin:0 0 20px;font-size:16px;color:var(--ink2)}
+.cards .card p{margin-top:8px}

@@ -2,7 +2,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261030z'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261031a'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
@@ -150,7 +150,7 @@ about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법
     <p class="lead2">처음 오신 분도 이해할 수 있게 쉬운 말로 설명드립니다.</p>
     <dl class="career">
       <div><dt>학력</dt><dd>마산상업고등학교 졸업<br>한국방송통신대학교 법학과 졸업</dd></div>
-      <div><dt>경력</dt><dd>(前) oo은행<br>(前) 행정직 공무원</dd></div>
+      <div><dt>경력</dt><dd>(前) 외환은행<br>(前) 행정직 공무원</dd></div>
       <div><dt>자격</dt><dd>법무사 · 행정사</dd></div>
       <div><dt>소속</dt><dd>경남지방법무사회<br>대한법무사협회<br>대한행정사회</dd></div>
       <div><dt>사무소</dt><dd>2023년부터 현 위치에서 운영중</dd></div>
@@ -205,16 +205,18 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
       <li><b class="hl">부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</b></li>
       <li>계산 결과는 참고용입니다.</li>
     </ul>
-    <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
+    <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>개별적 상담·자문은 <b>건당 150,000원</b>, 계속적 상담·자문은 <b>월 600,000원</b>이 각각 <b>상한액</b>입니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
 </div></section>
-<section class="section tinted"><div class="wrap"><p class="eyebrow">자주 받는 질문</p><h2>자주 묻는 질문</h2><p class="sub">자주 받는 질문은 곧 등록할 예정입니다. 궁금한 점은 전화로 편하게 문의해 주세요.</p></div></section>''' + CTA
+<section class="section tinted"><div class="wrap"><p class="eyebrow">자주 받는 질문</p><h2>자주 묻는 질문</h2><div class="qas"><details class="qa reveal"><summary>소유권이전등기(매매)에는 어떤 서류가 필요한가요?</summary><p>매도인은 신분증, 인감증명서(매도용), 인감도장, 등기권리증(또는 등기식별정보)이 필요하고, 매수인은 신분증, 도장, 주민등록초본이 필요합니다. 부동산거래계약 신고필증과 취득세 납부 영수증도 함께 제출합니다. 부동산 종류와 거래 방식에 따라 추가 서류가 있을 수 있어, 계약 전에 문의하시면 정확히 안내해 드립니다.</p></details><details class="qa reveal"><summary>상속등기는 꼭 해야 하나요? 기한이 있나요?</summary><p>상속으로 부동산을 취득한 사실을 안 날부터 3년 이내에 상속등기를 신청해야 하며, 정당한 사유 없이 기간이 지나면 과태료가 부과될 수 있습니다. 협의분할로 상속인이 여러 명일 때는 협의서와 인감증명서 등 서류가 많아지니 미리 상담받으시길 권해 드립니다.</p></details><details class="qa reveal"><summary>임차권등기명령은 어떤 경우에 신청하나요?</summary><p>임대차 계약이 끝났는데도 보증금을 돌려받지 못한 채 이사해야 할 때 신청합니다. 법원의 명령을 받아 등기를 하면 이사하거나 주민등록을 옮긴 뒤에도 기존에 갖춘 대항력과 우선변제권이 유지됩니다. 신청서 작성과 서류 준비를 도와드립니다.</p></details><details class="qa reveal"><summary>개인회생과 개인파산은 어떻게 다른가요?</summary><p>개인회생은 일정한 소득이 있는 분이 법원이 인가한 변제계획에 따라 정해진 기간 동안 일부를 갚고 나머지를 면책받는 절차입니다. 개인파산은 갚을 능력이 부족한 분이 채무의 면책을 신청하는 절차입니다. 어떤 절차가 맞는지는 소득, 재산, 채무 내용에 따라 달라 상담 후 안내해 드리며, 신청서류 작성과 제출을 돕습니다.</p></details><details class="qa reveal"><summary>경매 입찰도 대리해 주시나요?</summary><p>권리분석과 현황 조사 등 재산취득 상담, 매수신청 대리, 낙찰 후 소유권이전등기까지 도와드립니다. 물건마다 확인할 사항이 달라 입찰 전에 먼저 상담해 보시길 권해 드립니다.</p></details><details class="qa reveal"><summary>방문 전에 예약이 필요한가요?</summary><p>출장이 잦아 사무소를 비울 수 있으니 방문 전에 전화 또는 문자로 예약해 주세요. 영업시간 외에도 문자로 상담하실 수 있습니다.</p></details></div><p class="note">개별 사건의 내용에 따라 달라질 수 있으니, 정확한 내용은 상담으로 확인해 주세요.</p></div></section>''' + CTA
 page('fees.html', '비용 안내와 보수 계산기', '법무사보수표 기준 예상 보수 계산기와 상담 비용 안내.', fees,
      '<script src="calc.js?v='+VER+'"></script><script src="main.js?v='+VER+'"></script>')
 
 # ---------- 사례·후기
 cases = head('사례·후기', '처리 사례와 후기', '의뢰인 정보가 드러나지 않도록 동의를 받은 내용만 게시합니다.') + '''
 <section class="section"><div class="wrap">
-  <div class="empty reveal"><h3>사례와 후기를 준비하고 있어요</h3><p>그동안의 업무 이야기는 블로그에서 먼저 확인하실 수 있습니다.</p>
+  <p class="note ex-note">아래는 안내 형식을 보여 드리는 <b>예시</b>이며, 실제 의뢰인의 사례가 아닙니다.</p>
+  <div class="cards"><div class="card reveal"><span class="ex">예시</span><h3>상속등기</h3><p><b>상황</b> 부모님이 돌아가신 뒤 자녀 3명이 아파트를 상속하게 된 경우</p><p><b>진행</b> 상속인 확인과 가족관계 서류 준비 → 상속재산분할협의서 작성 → 취득세 신고·납부 → 상속등기 신청</p></div><div class="card reveal"><span class="ex">예시</span><h3>개인회생</h3><p><b>상황</b> 여러 금융기관에 채무가 있어 월 변제가 어려운 근로소득자의 경우</p><p><b>진행</b> 채무 내역과 소득·재산 확인 → 신청서와 변제계획안 등 서류 작성 → 법원 제출</p></div><div class="card reveal"><span class="ex">예시</span><h3>경매 입찰</h3><p><b>상황</b> 거주할 아파트를 경매로 취득하려는 경우</p><p><b>진행</b> 권리분석과 현황 조사 → 입찰가 상담 → 매수신청 대리 → 낙찰 후 소유권이전등기</p></div></div>
+  <div class="empty reveal" style="margin-top:28px"><h3>더 많은 업무 이야기는 블로그에서 확인하세요</h3>
   <a class="btn" href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">네이버 블로그 가기</a></div>
 </div></section>'''
 page('cases.html', '사례·후기', '유병열 법무사·행정사 사무소의 처리 사례와 블로그.', cases)
