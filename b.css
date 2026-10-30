@@ -55,12 +55,9 @@
 .hours-note{font-weight:600!important}
 /* 헤더 버튼 */
 .hbtns{display:flex;gap:8px}
-.hide-m{display:none}
-@media(min-width:820px){.hide-m{display:inline-flex}}
 /* 하단 고정 버튼 */
 .fabs{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;display:flex;gap:8px}
 .fabs a{flex:1;height:54px;border-radius:16px;background:var(--navy);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(25,31,40,.5)}
-.fabs a.alt{background:#fff;color:var(--navy);box-shadow:0 12px 30px -8px rgba(25,31,40,.35),inset 0 0 0 1.5px var(--navy)}
 @media(min-width:820px){.fabs{display:none}}
 /* 푸터 */
 .foot-in{display:flex!important;justify-content:space-between;align-items:flex-start;gap:20px}
@@ -79,3 +76,27 @@
 .pop-x{margin-top:12px;border:0;background:none;color:var(--ink3);font:inherit;font-size:16px;padding:10px;cursor:pointer}
 @keyframes popin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){.pop-card{animation:none}}
+
+/* 브랜드 크게 */
+.brand{gap:10px}
+.brand img{width:44px;height:auto}
+.bt{display:flex;flex-direction:column;line-height:1.15}
+.bt b{font-size:21px;font-weight:800;letter-spacing:-.03em}
+.bt small{font-size:15px;font-weight:600;color:var(--ink2);letter-spacing:-.02em}
+@media(min-width:620px){.bt{flex-direction:row;align-items:baseline;gap:8px}.bt b{font-size:23px}.bt small{font-size:17px}}
+.nav-in{height:68px}
+.hbtns .btn-sm{height:40px;padding:0 13px;font-size:14px}
+@media(min-width:620px){.hbtns .btn-sm{padding:0 16px;font-size:15px}}
+/* 메뉴는 1000px부터 한 줄 */
+@media(min-width:820px) and (max-width:999px){.bmenu{display:none}.tabs{display:flex}}
+@media(min-width:1000px){.bmenu{display:flex}}
+/* 방문 예약 문구 색 */
+.visit-note b{color:#d6336c}
+.hbtns .btn-sm{white-space:nowrap}
+.bt{white-space:nowrap}
+@media(max-width:389px){
+  .brand img{width:38px}.brand{gap:8px}
+  .bt b{font-size:19px}.bt small{font-size:13px}
+  .hbtns{gap:6px}.hbtns .btn-sm{padding:0 10px;font-size:13px}
+  .nav-in{gap:8px}
+}
