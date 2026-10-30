@@ -25,7 +25,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="유병열 법무사·행정사 사무소 홈"><img src="img/emblem.jpg" alt="" width="34" height="32"><span>유병열 법무사·행정사</span></a>
     <nav class="menu bmenu">{menu}</nav>
-    <a class="btn btn-sm" href="tel:0552862064">전화 상담</a>
+    <span class="hbtns"><a class="btn btn-sm btn-ghost hide-m" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-sm" href="tel:0552862064" data-pop="call">전화 상담</a></span>
   </div>
   <nav class="wrap tabs">{menu}</nav>
 </header>
@@ -34,12 +34,15 @@ def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
 </main>
 <footer class="footer">
   <div class="wrap foot-in">
-    <img src="img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
-    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층 · 전화 {TEL} · 휴대폰 010-2851-2064 · 팩스 055-224-2064 · byryu210@gmail.com</p>
+    <div class="foot-text">
+    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층<br>전화 {TEL} · 휴대폰 010-2851-2064<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
+    </div>
+    <img class="foot-logo" src="img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
   </div>
 </footer>
-<a class="fab" href="tel:0552862064" aria-label="전화 상담">전화 상담 {TEL}</a>
+<div class="fabs"><a href="tel:0552862064" data-pop="call">전화 상담</a><a class="alt" href="sms:01028512064" data-pop="sms">문자 상담</a></div>
+<script src="pop.js"></script>
 {scripts}
 </body>
 </html>
@@ -52,7 +55,7 @@ def head(eyebrow, h1, sub=''):
 
 CTA = f'''<section class="section tinted"><div class="wrap ctabox reveal">
 <div><h2>먼저 편하게 문의해 보세요</h2><p class="sub">사안에 따라 진행 방식과 비용이 달라질 수 있어 상담 후 안내해 드립니다.</p></div>
-<div class="cta"><a class="btn" href="tel:0552862064">{TEL} 전화하기</a><a class="btn btn-ghost" href="contact.html">상담 문의 안내</a></div>
+<div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-ghost" href="sms:01028512064" data-pop="sms">문자 상담</a></div>
 </div></section>'''
 
 # ---------- 홈
@@ -62,7 +65,7 @@ home = f'''
     <p class="eyebrow reveal">창원지방법원 마산지원 도보 1분</p>
     <h1 class="reveal">복잡한 법원 서류,<br>처음부터 끝까지 직접 챙깁니다.</h1>
     <p class="lead reveal">부동산 경매입찰과 등기, 개인회생·파산, 상속까지.<br class="pc">법무사·행정사가 직접 상담하고 직접 작성합니다.</p>
-    <div class="cta reveal"><a class="btn" href="tel:0552862064">{TEL} 전화하기</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
+    <div class="cta reveal"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-ghost" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
   </div>
   <div class="wrap hero-photo reveal"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
 </section>
@@ -77,7 +80,7 @@ home = f'''
       <a class="card link reveal" href="legal.html#rehab"><span class="num">채무</span><h3>개인회생·파산</h3><p>신청서와 변제계획안 등 서류 작성. 상담은 비밀이 유지됩니다.</p><span class="more">자세히 보기</span></a>
       <a class="card link reveal" href="legal.html#inherit"><span class="num">상속</span><h3>상속 서류</h3><p>상속등기, 상속포기·한정승인 심판청구서 작성.</p><span class="more">자세히 보기</span></a>
     </div>
-    <p class="note"><a class="tl" href="admin.html">행정사 업무 보기</a> · <a class="tl" href="legal.html">법무사 업무 전체 보기</a></p>
+    <p class="note"><a class="tl" href="legal.html">법무사 업무 전체 보기</a> · <a class="tl" href="admin.html">행정사 업무 보기</a></p>
   </div>
 </section>
 
@@ -166,7 +169,7 @@ admin = head('행정사 업무', '행정 서류도 함께 도와드립니다', '
 page('admin.html', '행정사 업무', '행정심판 청구서 작성, 각종 인허가·신고 서류 작성 등 행정사 업무 안내.', admin)
 
 # ---------- 비용 안내 (계산기 포함)
-fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>법무사보수표(2026. 8. 20. 자료 기준)</b>의 기본보수 <b class="hl">상한액</b> 산정 방법으로 계산합니다.') + '''
+fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>법무사보수표(2026. 8. 20. 자료 기준)</b>의 기본보수 <b class="hl">상한액</b> <span class="nb">산정 방법으로 계산합니다.</span>') + '''
 <section class="section"><div class="wrap">
     <div class="calc reveal">
       <div class="field"><label for="kind">업무 종류</label><select id="kind"></select></div>
@@ -179,7 +182,7 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
     </div>
     <ul class="fine">
       <li>표의 금액은 기본보수의 <b class="hl">상한액</b>이며, 사건의 내용에 따라 달라질 수 있습니다. 정확한 금액은 상담 후 안내해 드립니다.</li>
-      <li>부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</li>
+      <li><b class="hl">부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</b></li>
       <li>계산 결과는 참고용입니다.</li>
     </ul>
     <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
@@ -201,15 +204,15 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
 <section class="section"><div class="wrap visit">
   <div>
     <ul class="info">
+      <li><span>영업시간</span><div class="hours"><p><b>(평일)</b> 09시 ~ 18시</p><p><b>(주말)</b> 09시 ~ 13시</p><p class="hours-note">전화 또는 문자로 영업시간 외에도 상담 가능합니다.</p></div></li>
       <li><span>전화</span><a href="tel:0552862064">{TEL}</a></li>
-      <li><span>휴대폰</span><div><a href="tel:01028512064">010-2851-2064</a><p class="hours-note"><a class="tl" href="sms:01028512064">문자 보내기</a></p></div></li>
-      <li><span>영업시간</span><div class="hours"><p><b>(평일)</b> 09시 ~ 18시</p><p><b>(주말)</b> 09시 ~ 13시</p><p class="hours-note">전화, 문자로 영업시간 외에도 상담 가능합니다.</p></div></li>
+      <li><span>휴대폰</span><a href="tel:01028512064">010-2851-2064</a></li>
       <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
       <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 방문 전에 <b>전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
-    <div class="cta"><a class="btn" href="tel:0552862064">전화하기</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
+    <div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-ghost" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
   </div>
   <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg" alt="사무소 위치 지도" loading="lazy"></a>

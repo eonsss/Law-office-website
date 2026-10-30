@@ -15,7 +15,7 @@
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="유병열 법무사·행정사 사무소 홈"><img src="img/emblem.jpg" alt="" width="34" height="32"><span>유병열 법무사·행정사</span></a>
     <nav class="menu bmenu"><a href="about.html">사무소 소개</a><a href="legal.html">법무사 업무</a><a href="admin.html">행정사 업무</a><a href="fees.html">비용 안내</a><a href="cases.html">사례·후기</a><a href="contact.html">상담 문의</a></nav>
-    <a class="btn btn-sm" href="tel:0552862064">전화 상담</a>
+    <span class="hbtns"><a class="btn btn-sm btn-ghost hide-m" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-sm" href="tel:0552862064" data-pop="call">전화 상담</a></span>
   </div>
   <nav class="wrap tabs"><a href="about.html">사무소 소개</a><a href="legal.html">법무사 업무</a><a href="admin.html">행정사 업무</a><a href="fees.html">비용 안내</a><a href="cases.html">사례·후기</a><a href="contact.html">상담 문의</a></nav>
 </header>
@@ -26,7 +26,7 @@
     <p class="eyebrow reveal">창원지방법원 마산지원 도보 1분</p>
     <h1 class="reveal">복잡한 법원 서류,<br>처음부터 끝까지 직접 챙깁니다.</h1>
     <p class="lead reveal">부동산 경매입찰과 등기, 개인회생·파산, 상속까지.<br class="pc">법무사·행정사가 직접 상담하고 직접 작성합니다.</p>
-    <div class="cta reveal"><a class="btn" href="tel:0552862064">055-286-2064 전화하기</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
+    <div class="cta reveal"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-ghost" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
   </div>
   <div class="wrap hero-photo reveal"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
 </section>
@@ -41,7 +41,7 @@
       <a class="card link reveal" href="legal.html#rehab"><span class="num">채무</span><h3>개인회생·파산</h3><p>신청서와 변제계획안 등 서류 작성. 상담은 비밀이 유지됩니다.</p><span class="more">자세히 보기</span></a>
       <a class="card link reveal" href="legal.html#inherit"><span class="num">상속</span><h3>상속 서류</h3><p>상속등기, 상속포기·한정승인 심판청구서 작성.</p><span class="more">자세히 보기</span></a>
     </div>
-    <p class="note"><a class="tl" href="admin.html">행정사 업무 보기</a> · <a class="tl" href="legal.html">법무사 업무 전체 보기</a></p>
+    <p class="note"><a class="tl" href="legal.html">법무사 업무 전체 보기</a> · <a class="tl" href="admin.html">행정사 업무 보기</a></p>
   </div>
 </section>
 
@@ -84,12 +84,15 @@
 </main>
 <footer class="footer">
   <div class="wrap foot-in">
-    <img src="img/logo-wide.png" alt="유병열 법무사·행정사 사무소" width="180" height="87">
-    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층 · 전화 055-286-2064 · 휴대폰 010-2851-2064 · 팩스 055-224-2064 · byryu210@gmail.com</p>
+    <div class="foot-text">
+    <p>유병열 법무사·행정사 사무소 · 경남지방법무사회 소속<br>창원시 마산합포구 3·15대로 2층<br>전화 055-286-2064 · 휴대폰 010-2851-2064<br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
+    </div>
+    <img class="foot-logo" src="img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
   </div>
 </footer>
-<a class="fab" href="tel:0552862064" aria-label="전화 상담">전화 상담 055-286-2064</a>
+<div class="fabs"><a href="tel:0552862064" data-pop="call">전화 상담</a><a class="alt" href="sms:01028512064" data-pop="sms">문자 상담</a></div>
+<script src="pop.js"></script>
 <script src="b.js"></script>
 </body>
 </html>
