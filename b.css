@@ -183,3 +183,10 @@ html{scroll-padding-top:100px}
  .btn,.card,.tabs a,.hbtns a,.sl-btn,.qa summary{transition:none!important}
  .qa summary{-webkit-user-select:none;user-select:none}
 }
+/* 모바일: 페이지 이동 시 크기·위치가 튀어 보이지 않게 */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media(max-width:819px){
+ .wf body{opacity:0}
+ .reveal{opacity:1!important;transform:none!important;transition:none!important}
+ @view-transition{navigation:auto}
+}
