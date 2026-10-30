@@ -175,3 +175,11 @@ html{scroll-padding-top:100px}
 .footer{padding-bottom:48px!important}
 .mbr{display:none}
 @media(max-width:560px){.mbr{display:inline}}
+/* 터치 기기: 탭할 때 크기·위치가 순간적으로 변하지 않게 */
+*{-webkit-tap-highlight-color:transparent}
+@media(hover:none),(pointer:coarse){
+ .btn:active,.btn-sm:active,.sl-btn:active,.hbtns a:active,.tabs a:active{transform:none!important}
+ .card:hover{transform:none!important;box-shadow:none!important}
+ .btn,.card,.tabs a,.hbtns a,.sl-btn,.qa summary{transition:none!important}
+ .qa summary{-webkit-user-select:none;user-select:none}
+}
