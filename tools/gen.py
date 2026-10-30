@@ -4,7 +4,7 @@ OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
-MAP = 'https://map.naver.com/p/search/%EC%9C%A0%EB%B3%91%EC%97%B4%20%EB%B2%95%EB%AC%B4%EC%82%AC'
+MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
 
 def page(fn, title, desc, body, scripts='<script src="b.js"></script>'):
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in NAV)
@@ -120,7 +120,7 @@ home = f'''
 page('index.html', '마산 경매·개인회생·상속등기', '창원지방법원 마산지원 도보 1분. 부동산 경매입찰·등기, 개인회생·파산, 상속 서류 작성을 법무사·행정사가 직접 상담합니다.', home)
 
 # ---------- 소개
-about = head('사무소 소개', '서류를 직접 확인하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
+about = head('사무소 소개', '쉬운 말로 차근차근 안내하는 법무사·행정사', '2023년부터 마산합포구에서 사무소를 운영하고 있습니다.') + '''
 <section class="section"><div class="wrap about">
   <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
   <div class="about-text">
@@ -166,7 +166,7 @@ admin = head('행정사 업무', '행정 서류도 함께 도와드립니다', '
 page('admin.html', '행정사 업무', '행정심판 청구서 작성, 각종 인허가·신고 서류 작성 등 행정사 업무 안내.', admin)
 
 # ---------- 비용 안내 (계산기 포함)
-fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>대한법무사협회 법무사보수표(2026. 8. 20. 자료 기준)</b>의 기본보수 상한액 산정 방법으로 계산합니다.') + '''
+fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대한법무사협회 <b>법무사보수표(2026. 8. 20. 자료 기준)</b>의 기본보수 <b class="hl">상한액</b> 산정 방법으로 계산합니다.') + '''
 <section class="section"><div class="wrap">
     <div class="calc reveal">
       <div class="field"><label for="kind">업무 종류</label><select id="kind"></select></div>
@@ -175,14 +175,14 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
         <div class="amount-box"><input id="amount" inputmode="numeric" autocomplete="off" placeholder="0"><span>원</span></div>
         <p class="hint" id="amountHint"></p><div class="quick" id="quick"></div>
       </div>
-      <div class="result" id="result" aria-live="polite"><span class="r-label">예상 기본보수 (상한)</span><strong class="r-value" id="rValue">금액을 입력해 주세요</strong><span class="r-sub" id="rSub"></span></div>
+      <div class="result" id="result" aria-live="polite"><span class="r-label">예상 기본보수 (<b class="hl">상한액</b>)</span><strong class="r-value" id="rValue">금액을 입력해 주세요</strong><span class="r-sub" id="rSub"></span></div>
     </div>
     <ul class="fine">
-      <li>본 표는 기본보수의 <b>상한액</b>입니다. 개별 사건에서는 법무사보수기준에 따라 가산되거나 감액될 수 있습니다.</li>
+      <li>본 표는 기본보수의 <b class="hl">상한액</b>입니다. 개별 사건에서는 법무사보수기준에 따라 가산되거나 감액될 수 있습니다.</li>
       <li>부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</li>
       <li>실제 보수는 사안별 상담 후 확정됩니다. 계산 결과는 참고용입니다.</li>
     </ul>
-    <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. 사건을 맡기시는 경우는 제외됩니다.</p></div></div>
+    <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
 </div></section>
 <section class="section tinted"><div class="wrap"><p class="eyebrow">자주 받는 질문</p><h2>자주 묻는 질문</h2><p class="sub">자주 받는 질문은 곧 등록할 예정입니다. 궁금한 점은 전화로 편하게 문의해 주세요.</p></div></section>''' + CTA
 page('fees.html', '비용 안내와 보수 계산기', '법무사보수표 기준 예상 보수 계산기와 상담 비용 안내.', fees,
@@ -202,10 +202,10 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다', '평일�
   <div>
     <ul class="info">
       <li><span>전화</span><a href="tel:0552862064">{TEL}</a></li>
-      <li><span>팩스</span>055-224-2064</li>
+      <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
-      <li><span>위치</span>창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</li>
+      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 2층<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
     <div class="cta"><a class="btn" href="tel:0552862064">전화하기</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
