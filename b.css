@@ -133,3 +133,8 @@ html{scroll-padding-top:100px}
 /* 확대·축소 지도 */
 .map iframe{display:block;width:100%;height:360px;border:0;border-radius:var(--r);box-shadow:0 0 0 1px var(--line)}
 @media(min-width:820px){.map iframe{height:420px}}
+/* 상단 메뉴 간격 넓게: 1240px 이상에서만 한 줄 메뉴, 아래는 칩 줄 */
+@media(min-width:820px) and (max-width:1239px){.bmenu{display:none!important}.tabs{display:flex!important}}
+@media(min-width:1240px){.nav .nav-in{width:min(1200px,100% - 40px)}.bmenu{display:flex!important;gap:28px}.tabs{display:none!important}}
+/* 저작권 문구 한 줄 (넓은 화면) */
+@media(min-width:900px){.foot-text{max-width:none}.copy{white-space:nowrap}}
