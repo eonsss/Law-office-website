@@ -138,3 +138,15 @@ html{scroll-padding-top:100px}
 @media(min-width:1240px){.nav .nav-in{width:min(1200px,100% - 40px)}.bmenu{display:flex!important;gap:28px}.tabs{display:none!important}}
 /* 저작권 문구 한 줄 (넓은 화면) */
 @media(min-width:900px){.foot-text{max-width:none}.copy{white-space:nowrap}}
+/* profile slider */
+.slider{position:relative;max-width:380px}
+.slides{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r)}
+.slides::-webkit-scrollbar{display:none}
+.slides img{flex:0 0 100%;scroll-snap-align:center;max-width:none;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;border-radius:0}
+.sl-btn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.88);color:var(--navy);font-size:26px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(25,31,40,.25)}
+.sl-btn.prev{left:10px}.sl-btn.next{right:10px}
+.sl-dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:6px}
+.sl-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 0 3px rgba(0,0,0,.35)}
+.sl-dots i.on{background:#fff;width:18px;border-radius:4px}
+.hero-photo img{aspect-ratio:4/3!important}
+@media(min-width:720px){.hero-photo img{aspect-ratio:3/2!important}}

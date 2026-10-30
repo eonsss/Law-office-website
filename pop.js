@@ -59,3 +59,18 @@
   window.addEventListener('resize', fit);
   window.addEventListener('load', fit);
 })();
+
+// 프로필 사진 좌우 넘기기
+(function () {
+  document.querySelectorAll('.slider').forEach(function (sl) {
+    var box = sl.querySelector('.slides'), n = box.children.length, dots = sl.querySelector('.sl-dots');
+    for (var i = 0; i < n; i++) dots.appendChild(document.createElement('i'));
+    function cur() { return Math.round(box.scrollLeft / box.clientWidth); }
+    function mark() { Array.prototype.forEach.call(dots.children, function (d, k) { d.className = k === cur() ? 'on' : ''; }); }
+    function go(k) { box.scrollTo({ left: ((k % n) + n) % n * box.clientWidth, behavior: 'smooth' }); }
+    sl.querySelector('.prev').addEventListener('click', function () { go(cur() - 1); });
+    sl.querySelector('.next').addEventListener('click', function () { go(cur() + 1); });
+    box.addEventListener('scroll', mark, { passive: true });
+    mark();
+  });
+})();

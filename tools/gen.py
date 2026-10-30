@@ -2,7 +2,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261030x'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261030y'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
@@ -87,7 +87,16 @@ home = f'''
 
 <section class="section tinted">
   <div class="wrap about">
-    <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" loading="lazy" width="506" height="900"></div>
+    <div class="about-photo reveal"><div class="slider" aria-roledescription="carousel" aria-label="대표 사진">
+      <div class="slides">
+        <img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900">
+        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="430" height="430" style="object-position:center 30%">
+        <img src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy" width="900" height="1200">
+      </div>
+      <button type="button" class="sl-btn prev" aria-label="이전 사진">‹</button>
+      <button type="button" class="sl-btn next" aria-label="다음 사진">›</button>
+      <div class="sl-dots"></div>
+    </div></div>
     <div class="about-text">
       <p class="eyebrow">대표 소개</p>
       <h2>유병열 법무사·행정사</h2>
@@ -126,7 +135,16 @@ page('index.html', '마산 경매·개인회생·상속등기', '창원지방법
 # ---------- 소개
 about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법무사·행정사', '&nbsp;') + '''
 <section class="section"><div class="wrap about">
-  <div class="about-photo reveal"><img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900"></div>
+  <div class="about-photo reveal"><div class="slider" aria-roledescription="carousel" aria-label="대표 사진">
+      <div class="slides">
+        <img src="img/ceo.jpg" alt="유병열 법무사·행정사" width="506" height="900">
+        <img src="img/id.jpg" alt="유병열 법무사·행정사 증명사진" loading="lazy" width="430" height="430" style="object-position:center 30%">
+        <img src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy" width="900" height="1200">
+      </div>
+      <button type="button" class="sl-btn prev" aria-label="이전 사진">‹</button>
+      <button type="button" class="sl-btn next" aria-label="다음 사진">›</button>
+      <div class="sl-dots"></div>
+    </div></div>
   <div class="about-text">
     <h2>유병열</h2>
     <p class="lead2">처음 오신 분도 이해할 수 있게 쉬운 말로 설명드립니다.</p>
@@ -142,10 +160,10 @@ about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법
 <section class="section tinted"><div class="wrap">
   <p class="eyebrow">사무소 둘러보기</p><h2>편하게 들러 상담하세요</h2>
   <div class="gallery">
-    <img class="reveal" src="img/desk.jpg" alt="서류를 작성하는 사무소 내부" loading="lazy">
+    <img class="reveal" src="img/office1.jpg" alt="3·15대로변 유병열 법무사·행정사 사무소 입구" loading="lazy">
+    <img class="reveal" src="img/office2.jpg" alt="3·15대로에서 본 사무소 전경" loading="lazy">
     <img class="reveal" src="img/interior.jpg" alt="사무소 상담 공간" loading="lazy">
     <img class="reveal" src="img/shelf.jpg" alt="법률 서적이 꽂힌 사무소 서가" loading="lazy">
-    <img class="reveal" src="img/street.jpg" alt="3·15대로 간판과 사무소 입구" loading="lazy">
   </div>
 </div></section>''' + CTA
 page('about.html', '사무소 소개', '유병열 법무사·행정사 대표 소개와 사무소 안내. 경남지방법무사회·대한법무사협회·대한행정사회 소속.', about)
