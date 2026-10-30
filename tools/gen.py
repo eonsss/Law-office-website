@@ -2,7 +2,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261030p'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261030q'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
@@ -186,27 +186,6 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
       <li><b class="hl">부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</b></li>
       <li>계산 결과는 참고용입니다.</li>
     </ul>
-    <h2 class="sub-h">업무별 보수 상한 예시</h2>
-    <div class="tbl-wrap reveal"><table class="tbl">
-      <thead><tr><th>업무</th><th>기준 금액</th><th>기본보수 상한액</th></tr></thead>
-      <tbody>
-        <tr><td rowspan="3">소유권이전등기·근저당권 설정등기</td><td>1억 원</td><td>260,000원</td></tr>
-        <tr><td>3억 원</td><td>440,000원</td></tr>
-        <tr><td>5억 원</td><td>600,000원</td></tr>
-        <tr><td>말소등기 (근저당 말소 등)</td><td>금액 무관</td><td>50,000원</td></tr>
-        <tr><td rowspan="2">경매·공매 재산취득 상담</td><td>감정가 1억 원</td><td>1,050,000원</td></tr>
-        <tr><td>감정가 2억 원</td><td>1,850,000원</td></tr>
-        <tr><td rowspan="2">개인회생·개인파산 서류 작성</td><td>채무 3천만 원</td><td>1,030,000원</td></tr>
-        <tr><td>채무 1억 원</td><td>1,070,000원</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">위 금액은 계산기와 같은 기준의 <b class="hl">상한액</b> 예시이며, 부가가치세와 공과금은 포함되지 않습니다.</p>
-    <div class="cards">
-      <div class="card"><h3>별도로 드는 비용</h3><p>등록면허세, 지방교육세, 국민주택채권 매입비, 인지·송달료 등 <b>공과금은 보수와 별도</b>로 실비 부담합니다. 부가가치세도 별도입니다.</p></div>
-      <div class="card"><h3>출장 및 방문 상담</h3><p>출장이 잦아 방문 전 <b>전화 또는 문자로 예약</b>해 주세요. 출장이 필요한 업무의 비용은 사건에 따라 달라지므로 사전에 안내해 드립니다.</p></div>
-      <div class="card"><h3>보수 지급 방법</h3><p>보수와 공과금의 지급 시기와 방법은 사건을 맡기실 때 미리 안내해 드립니다. 자세한 내용은 전화 또는 문자로 문의해 주세요.</p></div>
-      <div class="card"><h3>견적은 이렇게 안내해요</h3><p>사건 내용을 확인한 뒤 <b>보수와 공과금을 나누어</b> 미리 알려 드리고, 동의하신 후에 진행합니다.</p></div>
-    </div>
     <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>30분까지 <b>50,000원</b>, 30분을 초과하면 30분마다 <b>20,000원</b>이 추가됩니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
 </div></section>
 <section class="section tinted"><div class="wrap"><p class="eyebrow">자주 받는 질문</p><h2>자주 묻는 질문</h2><p class="sub">자주 받는 질문은 곧 등록할 예정입니다. 궁금한 점은 전화로 편하게 문의해 주세요.</p></div></section>''' + CTA

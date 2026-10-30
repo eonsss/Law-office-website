@@ -138,10 +138,3 @@ html{scroll-padding-top:100px}
 @media(min-width:1240px){.nav .nav-in{width:min(1200px,100% - 40px)}.bmenu{display:flex!important;gap:28px}.tabs{display:none!important}}
 /* 저작권 문구 한 줄 (넓은 화면) */
 @media(min-width:900px){.foot-text{max-width:none}.copy{white-space:nowrap}}
-.sub-h{margin-top:48px;font-size:clamp(22px,3vw,28px);font-weight:800}
-.tbl-wrap{margin-top:20px;overflow-x:auto;background:#fff;border-radius:var(--r);box-shadow:0 12px 40px -24px rgba(25,31,40,.25)}
-.tbl{width:100%;border-collapse:collapse;font-size:16px;min-width:480px}
-.tbl th,.tbl td{padding:14px 18px;text-align:left;border-top:1px solid var(--line)}
-.tbl thead th{border-top:0;background:var(--tint);color:var(--ink2);font-size:15px}
-.tbl td:last-child{font-weight:700;color:var(--navy);text-align:right}
-.tbl thead th:last-child{text-align:right}
