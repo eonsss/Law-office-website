@@ -193,3 +193,11 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
  .nav{position:static;backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
  html{scroll-behavior:auto}
 }
+
+/* 업무별 절차 (B 버전) */
+.pjump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.pjump a{font-size:16px;font-weight:600;color:var(--navy);padding:9px 16px;border-radius:999px;background:var(--tint)}
+.pflow{display:grid;gap:10px;counter-reset:p;margin-top:4px}
+.pflow li{counter-increment:p;position:relative;background:#fff;border-radius:16px;padding:16px 18px 16px 58px;display:grid;gap:4px}
+.pflow li::before{content:counter(p);position:absolute;left:18px;top:15px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:15px;display:grid;place-items:center}
+.pflow b{font-size:18px}.pflow span{color:var(--ink2);font-size:16px;line-height:1.6}

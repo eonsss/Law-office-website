@@ -9,3 +9,9 @@
 - `img/` 사진과 로고
 
 페이지(`index.html`, `about.html` 등)는 `tools/gen.py`로 생성합니다. 문구를 바꾸려면 이 파일을 고친 뒤 `python3 tools/gen.py`를 실행하세요.
+
+## A/B 버전
+
+- A 버전: 루트 (`index.html` 등). 메뉴에 '사례·후기'.
+- B 버전: `b/` 폴더. '사례·후기' 대신 '업무별 절차'(`b/process.html`). CSS·JS·이미지는 루트 파일을 같이 쓰고, 검색엔진 색인은 막아 둠(noindex).
+- 두 버전 모두 `python3 tools/gen.py` 한 번으로 생성됩니다.
