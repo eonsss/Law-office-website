@@ -210,12 +210,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .pwhy h3{font-size:18px;margin-bottom:12px;color:var(--navy)}
 .pwhy .check li{font-size:16px;line-height:1.6}
 
-/* 상담 문의: 지도를 넓게, 원래 비율 그대로 (왼쪽 정보 목록 위쪽에 맞춤) */
+/* 상담 문의: 지도 위쪽은 정보 목록 위쪽, 아래쪽은 '도보 1분' 줄에 맞춤 (높이는 cmap.js가 계산) */
 @media(min-width:820px){
   .cvisit{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);grid-template-areas:"info map" "cta ." "note .";column-gap:40px;row-gap:0;align-items:start}
   .cvisit>div{display:contents}
   .cvisit .info{grid-area:info;margin:24px 0 28px}
   .cvisit .cta{grid-area:cta}
   .cvisit .note{grid-area:note}
-  .cvisit .map{grid-area:map;margin:24px 0 0}
+  .cvisit .map{grid-area:map;margin:24px 0 0;position:relative;aspect-ratio:1200/853}
+  .cvisit .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 }

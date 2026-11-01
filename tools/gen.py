@@ -5,7 +5,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101g'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101h'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -289,7 +289,7 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
       <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
-      <li><span>위치</span><div><b class="blue">창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
+      <li><span>위치</span><div><b class="blue" id="addr">창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
     <div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01000000000" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
@@ -303,7 +303,7 @@ contact_b = contact.replace('<div class="wrap visit">', '<div class="wrap visit 
 # 제목 아래 여백을 다른 메뉴(소개 등)와 같게: 빈 부제 줄을 둔다
 contact_b = contact_b.replace('<h1>전화 한 통이면 충분합니다</h1>', '<h1>전화 한 통이면 충분합니다</h1><p class="sub">&nbsp;</p>', 1)
 assert contact_b != contact
-page('contact.html', '상담 문의', '', contact_b, only='B')
+page('contact.html', '상담 문의', '', contact_b, '<script src="b.js?v='+VER+'"></script><script src="cmap.js?v='+VER+'"></script>', only='B')
 # ---------- 업무별 절차 (B 버전 전용)
 # 광고규정 고려: 성공률·처리 실적·후기 표현을 쓰지 않는다.
 # 셀프 처리 안내서가 되지 않도록 큰 흐름과 '전문가가 필요한 이유'만 쓴다.
