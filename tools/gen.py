@@ -9,7 +9,21 @@ VER = '20261101c'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
-PAGES = []  # (파일명, 제목, 설명, 본문, 스크립트, 버전) 버전: 'AB' 공통, 'A'만, 'B'만
+PAGES = []
+BASE = 'https://eonsss.github.io/Law-office-website/'  # 도메인을 사면 이 값만 바꾸고 다시 생성한다.
+SITE = '유병열 법무사·행정사 사무소'
+# 메인(B) 페이지의 검색 노출용 제목·설명. 광고규정상 성공·실적 표현은 쓰지 않는다.
+META = {
+  'index.html':  (SITE+' | 마산 경매·개인회생·상속등기', '마산 3·15대로 유병열 법무사·행정사 사무소. 부동산 경매입찰·등기, 개인회생, 파산, 상속 상담. 055-286-2064'),
+  'about.html':  ('사무소 소개 | '+SITE, '마산 3·15대로 유병열 법무사·행정사 사무소 대표 소개. 경남지방법무사회·대한법무사협회·대한행정사회 소속, 창원지방법원 마산지원 도보 1분.'),
+  'legal.html':  ('법무사 업무 | '+SITE, '부동산 경매입찰과 매수신청 대리, 소유권이전·근저당 등기, 개인회생·파산 신청서류, 상속등기 안내. 마산 유병열 법무사 055-286-2064'),
+  'admin.html':  ('행정사 업무 | '+SITE, '행정심판 청구서, 각종 인허가·신고 서류 작성과 제출 대행 안내. 마산 유병열 행정사 사무소 055-286-2064'),
+  'fees.html':   ('비용 안내와 보수 계산기 | '+SITE, '법무사보수표 기준 예상 보수를 바로 계산해 보세요. 등기·경매 등 업무별 기본보수 상한액과 상담 비용 안내.'),
+  'process.html':('업무별 절차 안내 | '+SITE, '부동산 경매입찰, 개인회생, 개인파산, 상속등기가 어떤 흐름으로 진행되는지 안내합니다. 마산 유병열 법무사·행정사 사무소.'),
+  'contact.html':('상담 문의·오시는 길 | '+SITE, '유병열 법무사·행정사 사무소 연락처와 오시는 길. 창원시 마산합포구 3·15대로 217, 2층. 전화 055-286-2064, 평일 09~18시·주말 09~13시.'),
+}
+LD = '''<script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"유병열 법무사·행정사 사무소","url":"'''+BASE+'''","image":"'''+BASE+'''img/exterior.jpg","telephone":"+82-55-286-2064","faxNumber":"+82-55-224-2064","email":"byryu210@gmail.com","address":{"@type":"PostalAddress","streetAddress":"3·15대로 217, 2층","addressLocality":"창원시 마산합포구","addressRegion":"경상남도","addressCountry":"KR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"09:00","closes":"13:00"}]}</script>
+'''  # (파일명, 제목, 설명, 본문, 스크립트, 버전) 버전: 'AB' 공통, 'A'만, 'B'만
 MAP = 'https://map.naver.com/p/search/%EB%B2%95%EB%AC%B4%EC%82%AC%20%ED%96%89%EC%A0%95%EC%82%AC%20%EC%9C%A0%EB%B3%91%EC%97%B4%20%EC%82%AC%EB%AC%B4%EC%86%8C'
 
 def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>', only='AB'):
@@ -21,15 +35,25 @@ def render(fn, title, desc, body, scripts, v):
         body = body.replace('src="img/', 'src="'+R+'img/')
         scripts = scripts.replace('<script src="', '<script src="'+R)
     robots = '<meta name="robots" content="noindex">\n' if v=='A' else ''
+    full = f'{title} | {SITE}'
+    seo = ''
+    if v=='B':
+        full, desc = META[fn]
+        url = BASE + ('' if fn=='index.html' else fn)
+        seo = (f'<link rel="canonical" href="{url}">\n<meta property="og:type" content="website">\n'
+               f'<meta property="og:site_name" content="{SITE}">\n<meta property="og:locale" content="ko_KR">\n'
+               f'<meta property="og:title" content="{full}">\n<meta property="og:description" content="{desc}">\n'
+               f'<meta property="og:url" content="{url}">\n<meta property="og:image" content="{BASE}img/exterior.jpg">\n'
+               f'<meta name="twitter:card" content="summary_large_image">\n' + (LD if fn=='index.html' else ''))
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in nav)
     html = f'''<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} | 유병열 법무사·행정사 사무소</title>
+<title>{full}</title>
 <meta name="description" content="{desc}">
-{robots}<link rel="icon" href="{R}img/emblem.jpg">
+{robots}{seo}<link rel="icon" href="{R}img/emblem.jpg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>(function(){{if(!window.matchMedia||!matchMedia("(max-width:819px)").matches||!document.fonts)return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,900);document.fonts.ready.then(ok)}})()</script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -328,4 +352,10 @@ def redirect(path, to):
 for fn,title,desc,body,scripts,only in PAGES:
     if 'B' in only: redirect('b/'+fn, '../'+fn)
 redirect('cases.html', 'process.html')
+# 검색엔진용 사이트맵과 robots.txt (메인 페이지만, old/ 제외)
+import datetime
+today = datetime.date.today().isoformat()
+urls = ''.join(f'  <url><loc>{BASE}{"" if fn=="index.html" else fn}</loc><lastmod>{today}</lastmod></url>\n' for fn in META)
+open(os.path.join(OUT,'sitemap.xml'),'w',encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls+'</urlset>\n')
+open(os.path.join(OUT,'robots.txt'),'w',encoding='utf-8').write(f'User-agent: *\nDisallow: /old/\nDisallow: /b/\n\nSitemap: {BASE}sitemap.xml\n')
 print('ok')
