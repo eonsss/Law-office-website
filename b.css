@@ -195,9 +195,18 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 }
 
 /* 업무별 절차 (B 버전) */
-.pjump{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
-.pjump a{font-size:16px;font-weight:600;color:var(--navy);padding:9px 16px;border-radius:999px;background:var(--tint)}
+.ptabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;background:var(--tint);border-radius:18px;padding:6px;margin:0 0 20px}
+.ptabs a{text-align:center;font-size:16px;font-weight:700;color:var(--ink2);padding:12px 4px;border-radius:13px;white-space:nowrap}
+.ptabs a.on{background:var(--navy);color:#fff}
+@media(max-width:400px){.ptabs a{font-size:15px}}
+.ppanel{scroll-margin-top:120px}
+.ppanel[hidden]{display:none}
 .pflow{display:grid;gap:10px;counter-reset:p;margin-top:4px}
 .pflow li{counter-increment:p;position:relative;background:#fff;border-radius:16px;padding:16px 18px 16px 58px;display:grid;gap:4px}
 .pflow li::before{content:counter(p);position:absolute;left:18px;top:15px;width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:15px;display:grid;place-items:center}
 .pflow b{font-size:18px}.pflow span{color:var(--ink2);font-size:16px;line-height:1.6}
+@media(min-width:820px){.pflow{grid-template-columns:repeat(4,1fr)}.pflow li{padding:18px 18px 20px;align-content:start}.pflow li::before{position:static;margin-bottom:8px}}
+.pwhy{margin-top:22px;background:#fff;border-radius:16px;padding:20px 20px 22px}
+.pwhy h3{font-size:18px;margin-bottom:12px;color:var(--navy)}
+.pwhy .check li{font-size:16px;line-height:1.6}
+.pcta{margin-top:20px}
