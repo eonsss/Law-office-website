@@ -5,7 +5,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101h'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101i'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -313,7 +313,9 @@ PTABS = [('auction','경매입찰'),('rehab','개인회생'),('bankrupt','개인
 def proc(id_, name, who, steps, why, note=''):
     li = ''.join(f'<li><b>{t}</b><span>{d}</span></li>' for t,d in steps)
     wl = ''.join(f'<li>{w}</li>' for w in why)
-    n = f'<p class="svc-note">{note}</p>' if note else ''
+    S = '상담 내용은 비밀이 유지됩니다.'  # 모든 탭에 공통으로 넣는다
+    if S not in note: note = (S + ' ' + note).strip()
+    n = f'<p class="svc-note">{note}</p>'
     return f"""<article class="svc ppanel" id="{id_}" role="tabpanel" aria-labelledby="tab-{id_}"{"" if id_==PTABS[0][0] else " hidden"}><div class="svc-h"><h2>{name}</h2></div>
 <p class="svc-who">{who}</p><ol class="pflow">{li}</ol>
 <div class="pwhy"><h3>전문가와 함께 진행하면 좋은 이유</h3><ul class="check">{wl}</ul></div>{n}</article>"""
