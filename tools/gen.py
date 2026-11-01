@@ -1,7 +1,7 @@
 # 페이지 생성기: 기획안의 메뉴 6개 구조
 # B 버전(메인, 루트): '업무별 절차' 메뉴가 있는 버전. 2026-11-01부터 메인.
-# A 버전(a/ 폴더, 보관용): '사례·후기' 메뉴가 있던 이전 버전. 검색엔진 색인 차단.
-# a/ 페이지는 루트의 CSS·JS·이미지를 같이 쓴다. 예전 b/ 주소와 루트 cases.html은 새 위치로 넘겨 준다.
+# A 버전(old/ 폴더, 보관용): '사례·후기' 메뉴가 있던 이전 버전. 검색엔진 색인 차단.
+# old/ 페이지는 루트의 CSS·JS·이미지를 같이 쓴다. 예전 b/ 주소와 루트 cases.html은 새 위치로 넘겨 준다.
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
@@ -16,7 +16,7 @@ def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>'
     PAGES.append((fn, title, desc, body, scripts, only))
 
 def render(fn, title, desc, body, scripts, v):
-    nav, d, R = (NAV_B, OUT, '') if v=='B' else (NAV_A, os.path.join(OUT,'a'), '../')
+    nav, d, R = (NAV_B, OUT, '') if v=='B' else (NAV_A, os.path.join(OUT,'old'), '../')
     if R:
         body = body.replace('src="img/', 'src="'+R+'img/')
         scripts = scripts.replace('<script src="', '<script src="'+R)
