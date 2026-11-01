@@ -5,7 +5,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101c'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101d'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -295,8 +295,7 @@ def proc(id_, name, who, steps, why, note=''):
     n = f'<p class="svc-note">{note}</p>' if note else ''
     return f"""<article class="svc ppanel" id="{id_}" role="tabpanel" aria-labelledby="tab-{id_}"{"" if id_==PTABS[0][0] else " hidden"}><div class="svc-h"><h2>{name}</h2></div>
 <p class="svc-who">{who}</p><ol class="pflow">{li}</ol>
-<div class="pwhy"><h3>전문가와 함께 진행하면 좋은 이유</h3><ul class="check">{wl}</ul></div>{n}
-<div class="cta pcta"><a class="btn" href="tel:0552862064" data-pop="call">{name} 상담하기</a></div></article>"""
+<div class="pwhy"><h3>전문가와 함께 진행하면 좋은 이유</h3><ul class="check">{wl}</ul></div>{n}</article>"""
 TABS = '<div class="ptabs" role="tablist" aria-label="업무 선택">' + ''.join(
     f'<a role="tab" id="tab-{i}" href="#{i}" aria-controls="{i}"' + (' class="on" aria-selected="true"' if i==PTABS[0][0] else ' aria-selected="false"') + f'>{t}</a>' for i,t in PTABS) + '</div>'
 process = head('업무별 절차', '어떤 순서로 진행되는지 미리 알려 드립니다', '궁금한 업무를 눌러 전체 흐름을 확인해 보세요.') + '<section class="section"><div class="wrap">' + TABS + '<div class="ppanels">' + \
