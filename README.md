@@ -12,6 +12,7 @@
 
 ## A/B 버전
 
-- A 버전: 루트 (`index.html` 등). 메뉴에 '사례·후기'.
-- B 버전: `b/` 폴더. '사례·후기' 대신 '업무별 절차'(`b/process.html`). CSS·JS·이미지는 루트 파일을 같이 쓰고, 검색엔진 색인은 막아 둠(noindex).
-- 두 버전 모두 `python3 tools/gen.py` 한 번으로 생성됩니다.
+- 메인(B 버전): 루트 (`index.html` 등). 메뉴에 '업무별 절차'(`process.html`).
+- A 버전(보관용): `a/` 폴더. 메뉴에 '사례·후기'. CSS·JS·이미지는 루트 파일을 같이 쓰고, 검색엔진 색인은 막아 둠(noindex).
+- 예전 `b/` 주소와 루트 `cases.html`은 새 위치로 자동 이동합니다.
+- 모두 `python3 tools/gen.py` 한 번으로 생성됩니다.
