@@ -300,6 +300,8 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
 page('contact.html', '상담 문의', '유병열 법무사·행정사 사무소 연락처와 오시는 길.', contact, only='A')
 # 메인(B): 지도 높이를 왼쪽 정보(영업시간~위치) 높이에 맞춘다 (b.css .cvisit)
 contact_b = contact.replace('<div class="wrap visit">', '<div class="wrap visit cvisit">', 1)
+# 제목 아래 여백을 다른 메뉴(소개 등)와 같게: 빈 부제 줄을 둔다
+contact_b = contact_b.replace('<h1>전화 한 통이면 충분합니다</h1>', '<h1>전화 한 통이면 충분합니다</h1><p class="sub">&nbsp;</p>', 1)
 assert contact_b != contact
 page('contact.html', '상담 문의', '', contact_b, only='B')
 # ---------- 업무별 절차 (B 버전 전용)
