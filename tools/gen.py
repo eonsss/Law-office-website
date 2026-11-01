@@ -1,10 +1,11 @@
 # 페이지 생성기: 기획안의 메뉴 6개 구조
-# A 버전(루트): 소개/법무사 업무/행정사 업무/비용 안내/사례·후기/상담 문의
-# B 버전(b/ 폴더): '사례·후기' 대신 '업무별 절차' 메뉴. CSS·JS·이미지는 루트 파일을 같이 쓴다.
+# B 버전(메인, 루트): '업무별 절차' 메뉴가 있는 버전. 2026-11-01부터 메인.
+# A 버전(old/ 폴더, 보관용): '사례·후기' 메뉴가 있던 이전 버전. 검색엔진 색인 차단.
+# old/ 페이지는 루트의 CSS·JS·이미지를 같이 쓴다. 예전 b/ 주소와 루트 cases.html은 새 위치로 넘겨 준다.
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101b'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101c'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -15,11 +16,11 @@ def page(fn, title, desc, body, scripts='<script src="b.js?v='+VER+'"></script>'
     PAGES.append((fn, title, desc, body, scripts, only))
 
 def render(fn, title, desc, body, scripts, v):
-    nav, d, R = (NAV_A, OUT, '') if v=='A' else (NAV_B, os.path.join(OUT,'b'), '../')
+    nav, d, R = (NAV_B, OUT, '') if v=='B' else (NAV_A, os.path.join(OUT,'old'), '../')
     if R:
         body = body.replace('src="img/', 'src="'+R+'img/')
         scripts = scripts.replace('<script src="', '<script src="'+R)
-    robots = '<meta name="robots" content="noindex">\n' if v=='B' else ''
+    robots = '<meta name="robots" content="noindex">\n' if v=='A' else ''
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in nav)
     html = f'''<!doctype html>
 <html lang="ko">
@@ -314,4 +315,17 @@ page('process.html', '업무별 절차 안내', '부동산 경매입찰, 개인�
 for fn,title,desc,body,scripts,only in PAGES:
     for v in only:
         render(fn,title,desc,body,scripts,v)
+
+# 예전 주소를 새 위치로 넘겨 주는 페이지
+def redirect(path, to):
+    os.makedirs(os.path.dirname(os.path.join(OUT, path)), exist_ok=True)
+    open(os.path.join(OUT, path), 'w', encoding='utf-8').write(f'''<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<link rel="canonical" href="{to}"><meta http-equiv="refresh" content="0; url={to}">
+<script>location.replace("{to}"+location.hash)</script><title>이동 중</title></head>
+<body><p><a href="{to}">새 주소로 이동</a></p></body></html>
+''')
+for fn,title,desc,body,scripts,only in PAGES:
+    if 'B' in only: redirect('b/'+fn, '../'+fn)
+redirect('cases.html', 'process.html')
 print('ok')
