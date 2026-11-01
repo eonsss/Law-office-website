@@ -5,7 +5,7 @@
 import os
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101k'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101l'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -65,7 +65,7 @@ def render(fn, title, desc, body, scripts, v):
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="유병열 법무사·행정사 사무소 홈"><img src="{R}img/emblem.jpg" alt="" width="44" height="41"><span class="bt"><b>유병열</b><small>법무사·행정사</small></span></a>
     <nav class="menu bmenu">{menu}</nav>
-    <span class="hbtns"><a class="btn btn-sm" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-sm" href="sms:01000000000" data-pop="sms">문자 상담</a></span>
+    <span class="hbtns"><a class="btn btn-sm" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn btn-sm" href="sms:01028512064" data-pop="sms">문자 상담</a></span>
   </div>
   <nav class="wrap tabs">{menu}</nav>
 </header>
@@ -75,7 +75,7 @@ def render(fn, title, desc, body, scripts, v):
 <footer class="footer">
   <div class="wrap foot-in">
     <div class="foot-text">
-    <p>유병열 법무사·행정사 사무소<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br><span class="nb">전화 {TEL}</span> · <span class="nb">휴대폰 010-0000-0000</span><br>팩스 055-224-2064<br>byryu210@gmail.com</p>
+    <p>유병열 법무사·행정사 사무소<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br><span class="nb">전화 {TEL}</span> · <span class="nb">휴대폰 010-2851-2064</span><br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
     </div>
     <img class="foot-logo" src="{R}img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
@@ -95,7 +95,7 @@ def head(eyebrow, h1, sub=''):
 
 CTA = f'''<section class="section tinted"><div class="wrap ctabox reveal">
 <div><h2>먼저 편하게 문의해 보세요</h2><p class="sub">사안에 따라 진행 방식과 비용이 달라질 수 있어 상담 후 안내해 드립니다.</p></div>
-<div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01000000000" data-pop="sms">문자 상담</a></div>
+<div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01028512064" data-pop="sms">문자 상담</a></div>
 </div></section>'''
 
 # ---------- 홈
@@ -105,7 +105,7 @@ home = f'''
     <p class="eyebrow reveal">창원지방법원 마산지원 도보 1분</p>
     <h1 class="reveal">복잡한 법원 서류,<br>처음부터 끝까지 직접 챙깁니다.</h1>
     <p class="lead reveal">부동산 경매입찰과 등기, 개인회생·파산, 상속까지.<br class="pc">법무사·행정사가 직접 상담하고 직접 작성합니다.</p>
-    <div class="cta reveal"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01000000000" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
+    <div class="cta reveal"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
   </div>
   <div class="wrap hero-photo reveal"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
 </section>
@@ -285,13 +285,13 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
     <ul class="info">
       <li><span>영업시간</span><div class="hours"><p><b>(평일)</b> 09시 ~ 18시</p><p><b>(주말)</b> 09시 ~ 13시</p><p class="hours-note">전화 또는 문자로 영업시간 외에도 상담 가능합니다.</p></div></li>
       <li><span>전화</span><a href="tel:0552862064">{TEL}</a></li>
-      <li><span>휴대폰</span><a href="tel:01000000000">010-0000-0000</a></li>
+      <li><span>휴대폰</span><a href="tel:01028512064">010-2851-2064</a></li>
       <li><span>팩스</span><b class="blue">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
       <li><span>위치</span><div><b class="blue" id="addr">창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
     </ul>
-    <div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01000000000" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
+    <div class="cta"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="{MAP}" target="_blank" rel="noopener">네이버 지도</a></div>
     <p class="note" style="margin-top:20px">상담 비용은 <a class="tl" href="fees.html">비용 안내</a>에서 확인하실 수 있어요.</p>
   </div>
   <a class="map reveal" href="{MAP}" target="_blank" rel="noopener" aria-label="네이버 지도에서 사무소 위치 보기"><img src="img/map.jpg?v={VER}" alt="사무소 위치 지도" loading="lazy"></a>
