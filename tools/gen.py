@@ -10,7 +10,7 @@ NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('a
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
 PAGES = []
-BASE = 'https://eonsss.github.io/Law-office-website/'  # 도메인을 사면 이 값만 바꾸고 다시 생성한다.
+BASE = 'https://eonsss.github.io/LawOffice/'  # 도메인을 사면 이 값만 바꾸고 다시 생성한다.
 SITE = '유병열 법무사·행정사 사무소'
 # 메인(B) 페이지의 검색 노출용 제목·설명. 광고규정상 성공·실적 표현은 쓰지 않는다.
 META = {

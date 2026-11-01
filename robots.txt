@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /old/
 Disallow: /b/
 
-Sitemap: https://eonsss.github.io/Law-office-website/sitemap.xml
+Sitemap: https://eonsss.github.io/LawOffice/sitemap.xml
