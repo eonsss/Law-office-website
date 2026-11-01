@@ -60,9 +60,11 @@
   window.addEventListener('load', fit);
 })();
 
-// 프로필 사진 좌우 넘기기
-(function () {
+// 프로필 사진 좌우 넘기기 (페이지 본문이 바뀔 때도 다시 호출된다)
+window.siteSliders = function () {
   document.querySelectorAll('.slider').forEach(function (sl) {
+    if (sl.getAttribute('data-ready')) return;
+    sl.setAttribute('data-ready', '1');
     var box = sl.querySelector('.slides'), n = box.children.length, dots = sl.querySelector('.sl-dots');
     for (var i = 0; i < n; i++) dots.appendChild(document.createElement('i'));
     function cur() { return Math.round(box.scrollLeft / box.clientWidth); }
@@ -73,4 +75,4 @@
     box.addEventListener('scroll', mark, { passive: true });
     mark();
   });
-})();
+};

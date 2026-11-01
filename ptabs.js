@@ -19,6 +19,6 @@
       var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); n.click();
     });
   });
-  window.addEventListener('hashchange', function () { show(location.hash.slice(1)); });
+  window.addEventListener('hashchange', function () { if (document.contains(tabs[0])) show(location.hash.slice(1)); });
   show(location.hash.slice(1));
 })();

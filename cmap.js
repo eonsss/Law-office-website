@@ -4,6 +4,7 @@
   if (!map || !addr || !info) return;
   var mq = window.matchMedia('(min-width:820px)');
   function fit() {
+    if (!document.contains(map)) return;
     if (!mq.matches) { map.style.height = ''; map.style.aspectRatio = ''; return; }
     var h = addr.getBoundingClientRect().bottom - info.getBoundingClientRect().top;
     if (h > 200) { map.style.aspectRatio = 'auto'; map.style.height = Math.round(h) + 'px'; }

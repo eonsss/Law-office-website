@@ -5,7 +5,7 @@
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101o'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101p'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -35,6 +35,7 @@ def render(fn, title, desc, body, scripts, v):
         body = body.replace('src="img/', 'src="'+R+'img/')
         body = body.replace('srcset="img/', 'srcset="'+R+'img/').replace(', img/', ', '+R+'img/')
         scripts = scripts.replace('<script src="', '<script src="'+R)
+    if v=='B': scripts += '<script src="nav.js?v='+VER+'"></script>'  # 메뉴 이동 시 본문만 교체
     robots = '<meta name="robots" content="noindex">\n' if v=='A' else ''
     full = f'{title} | {SITE}'
     seo = ''
@@ -268,7 +269,7 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
 </div></section>
 ''' + CTA
 page('fees.html', '비용 안내와 보수 계산기', '법무사보수표 기준 예상 보수 계산기와 상담 비용 안내.', fees,
-     '<script src="calc.js?v='+VER+'"></script><script src="main.js?v='+VER+'"></script>')
+     '<script src="b.js?v='+VER+'"></script><script src="calc.js?v='+VER+'"></script><script src="main.js?v='+VER+'"></script>')
 
 # ---------- 사례·후기
 cases = head('사례·후기', '처리 사례와 후기', '의뢰인 정보가 드러나지 않도록 동의를 받은 내용만 게시합니다.') + '''
