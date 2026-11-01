@@ -5,7 +5,7 @@
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101m'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101n'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -33,6 +33,7 @@ def render(fn, title, desc, body, scripts, v):
     nav, d, R = (NAV_B, OUT, '') if v=='B' else (NAV_A, os.path.join(OUT,'old'), '../')
     if R:
         body = body.replace('src="img/', 'src="'+R+'img/')
+        body = body.replace('srcset="img/', 'srcset="'+R+'img/').replace(', img/', ', '+R+'img/')
         scripts = scripts.replace('<script src="', '<script src="'+R)
     robots = '<meta name="robots" content="noindex">\n' if v=='A' else ''
     full = f'{title} | {SITE}'
@@ -54,9 +55,8 @@ def render(fn, title, desc, body, scripts, v):
 <title>{full}</title>
 <meta name="description" content="{desc}">
 {robots}{seo}<link rel="icon" href="{R}img/emblem.jpg">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<script>(function(){{if(!window.matchMedia||!matchMedia("(max-width:819px)").matches||!document.fonts)return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,900);document.fonts.ready.then(ok)}})()</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script>(function(){{if(!window.matchMedia||!matchMedia("(max-width:819px)").matches||!document.fonts)return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,500);document.fonts.ready.then(ok)}})()</script>
+<link rel="stylesheet" href="{R}fonts/pretendard.css?v=1.3.9">
 <link rel="stylesheet" href="{R}style.css?v={VER}">
 <link rel="stylesheet" href="{R}b.css?v={VER}">
 </head>
@@ -78,7 +78,7 @@ def render(fn, title, desc, body, scripts, v):
     <p>유병열 법무사·행정사 사무소<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br><span class="nb">전화 {TEL}</span> · <span class="nb">휴대폰 010-2851-2064</span><br>팩스 055-224-2064<br>byryu210@gmail.com</p>
     <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
     </div>
-    <img class="foot-logo" src="{R}img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96">
+    <img class="foot-logo" src="{R}img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96" loading="lazy" decoding="async">
   </div>
 </footer>
 <script src="{R}pop.js?v={VER}"></script>
@@ -107,7 +107,7 @@ home = f'''
     <p class="lead reveal">부동산 경매입찰과 등기, 개인회생·파산, 상속까지.<br class="pc">법무사·행정사가 직접 상담하고 직접 작성합니다.</p>
     <div class="cta reveal"><a class="btn" href="tel:0552862064" data-pop="call">전화 상담</a><a class="btn" href="sms:01028512064" data-pop="sms">문자 상담</a><a class="btn btn-ghost" href="fees.html">예상 보수 계산</a></div>
   </div>
-  <div class="wrap hero-photo reveal"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200"></div>
+  <div class="wrap hero-photo reveal"><picture><source type="image/webp" srcset="img/exterior-800.webp 800w, img/exterior-1200.webp 1200w, img/exterior-1600.webp 1600w" sizes="(max-width:1140px) 100vw, 1080px"><img src="img/exterior.jpg" alt="마산합포구 3·15대로변 유병열 법무사·행정사 사무소 전경" width="1600" height="1200" fetchpriority="high" decoding="async"></picture></div>
 </section>
 
 <section class="section">
