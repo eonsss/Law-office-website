@@ -2,10 +2,10 @@
 # B 버전(메인, 루트): '업무별 절차' 메뉴가 있는 버전. 2026-11-01부터 메인.
 # A 버전(old/ 폴더, 보관용): '사례·후기' 메뉴가 있던 이전 버전. 검색엔진 색인 차단.
 # old/ 페이지는 루트의 CSS·JS·이미지를 같이 쓴다. 예전 b/ 주소와 루트 cases.html은 새 위치로 넘겨 준다.
-import os
+import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101l'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261101m'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -228,6 +228,8 @@ LEGAL_ADD = svc('corp','05','법인등기','회사를 세우거나 임원·본�
   svc('court','06','법원 제출 서류 작성','돈을 돌려받지 못했거나 법원에 서류를 내야 하는 분','지급명령 신청서 작성|가압류·가처분 신청서 작성|공탁 서류 작성'.split('|'), '<p class="svc-note">소송 대리가 필요한 사건은 변호사 업무라 해당 전문가를 안내해 드립니다.</p>')
 legal_b = legal.replace("</div></section>" + CTA, LEGAL_ADD + "</div></section>" + CTA, 1)
 assert legal_b != legal
+# 메인(B) 법무사 업무 메뉴에서는 비밀 유지·세무사·변호사 안내 문구를 뺀다 (2026-11-01 요청)
+legal_b = re.sub(r'<p class="svc-note">.*?</p>', '', legal_b)
 page('legal.html', '법무사 업무', '', legal_b, only='B')
 
 # ---------- 행정사
