@@ -220,3 +220,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   .cvisit .map{grid-area:map;margin:24px 0 0;position:relative;aspect-ratio:1200/853}
   .cvisit .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
 }
+
+/* 대표 인사말: 문단 간격·줄 간격 통일 */
+.greet{line-height:1.75}
+.greet p+p{margin-top:14px}
