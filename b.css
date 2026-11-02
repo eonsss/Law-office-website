@@ -187,8 +187,9 @@ html{scroll-padding-top:100px}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 @media(max-width:819px){
  .wf body{opacity:0}
- .reveal{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* 데스크탑 사이트 보기(폭 980px 등)에서도 이동 시 본문이 흐렸다 나타나지 않게 */
+.reveal{opacity:1!important;transform:none!important;transition:none!important}
 @media(max-width:819px){
  .nav{position:static;backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
  html{scroll-behavior:auto}
