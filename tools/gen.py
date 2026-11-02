@@ -6,7 +6,7 @@ import re
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261102l'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261102m'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -148,7 +148,7 @@ home = f'''
     <div class="about-text">
       <p class="eyebrow">대표 인사말</p>
       <h2>유병열 법무사·행정사</h2>
-      <p class="lead2 greet"><span>안녕하십니까, 법무사·행정사 유병열입니다.</span><span>창원지방법원 마산지원 인근에서 마산과 창원 지역 주민분들뿐 아니라 전국 각지에서 찾아 주시는 분들의 부동산 등기와 경매입찰, <span class="nw">개인회생·파산</span>, 상속등기 같은 법무사 업무와 <br class="gbr"><span class="nw">인허가·행정심판</span> 등 행정사 업무를 하고 있습니다.</span><span>서류 하나하나를 직접 확인하고, 처음 오신 분도 이해하실 수 있게 차근차근 설명드리겠습니다.</span><span>편하신 방법으로 연락하신 후 상황을 말씀해 주시면 성심껏 상담해 드리겠습니다.</span></p>
+      <p class="lead2 greet"><span>안녕하십니까, 법무사·행정사 유병열입니다.</span><span>창원지방법원 마산지원 인근에서 마산과 창원 지역 주민분들뿐 아니라 전국 각지에서 찾아 주시는 분들의 부동산 등기와 경매입찰, <span class="nw">개인회생·파산</span>, 상속등기 같은 법무사 업무 및 <br class="gbr"><span class="nw">인허가·행정심판</span> 등 행정사 업무를 하고 있습니다.</span><span>서류 하나하나를 직접 확인하고, 처음 오신 분도 이해하실 수 있게 차근차근 설명드리겠습니다.</span><span>편하신 방법으로 연락하신 후 상황을 말씀해 주시면 성심껏 상담해 드리겠습니다.</span></p>
       <a class="btn" href="about.html" style="margin-top:26px">대표 소개 보기</a>
     </div>
   </div>
