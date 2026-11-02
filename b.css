@@ -185,9 +185,8 @@ html{scroll-padding-top:100px}
 }
 /* 모바일: 페이지 이동 시 크기·위치가 튀어 보이지 않게 */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-@media(max-width:819px){
- .wf body{opacity:0}
-}
+/* 폰(데스크탑 사이트 보기 포함): 글꼴이 준비될 때까지 잠깐 숨겨 글자가 움찔하지 않게 */
+.wf body{opacity:0}
 /* 데스크탑 사이트 보기(폭 980px 등)에서도 이동 시 본문이 흐렸다 나타나지 않게 */
 .reveal{opacity:1!important;transform:none!important;transition:none!important}
 @media(max-width:819px){

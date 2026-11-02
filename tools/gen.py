@@ -6,7 +6,7 @@ import re
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261102i'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261102j'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -59,7 +59,7 @@ def render(fn, title, desc, body, scripts, v):
 <title>{full}</title>
 <meta name="description" content="{desc}">
 {robots}{seo}{ga}<link rel="icon" href="{R}img/emblem.jpg">
-<script>(function(){{if(!window.matchMedia||!matchMedia("(max-width:819px)").matches||!document.fonts)return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,500);document.fonts.ready.then(ok)}})()</script>
+<script>(function(){{if(!window.matchMedia||!document.fonts||!(matchMedia("(max-width:819px)").matches||matchMedia("(pointer:coarse)").matches||(window.screen&&screen.width<=819)))return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,500);document.fonts.ready.then(ok)}})()</script>
 <link rel="stylesheet" href="{R}fonts/pretendard.css?v=1.3.9">
 <link rel="stylesheet" href="{R}style.css?v={VER}">
 <link rel="stylesheet" href="{R}b.css?v={VER}">
