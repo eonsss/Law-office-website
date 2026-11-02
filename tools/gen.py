@@ -46,7 +46,7 @@ def render(fn, title, desc, body, scripts, v):
                f'<meta property="og:site_name" content="{SITE}">\n<meta property="og:locale" content="ko_KR">\n'
                f'<meta property="og:title" content="{full}">\n<meta property="og:description" content="{desc}">\n'
                f'<meta property="og:url" content="{url}">\n<meta property="og:image" content="{BASE}img/exterior.jpg">\n'
-               f'<meta name="twitter:card" content="summary_large_image">\n' + (('<meta name="google-site-verification" content="zadIHAeYB25NbH-4gxOt">\n' + LD) if fn=='index.html' else ''))
+               f'<meta name="twitter:card" content="summary_large_image">\n' + (('<meta name="google-site-verification" content="zadIHAeYB25NbH-4gxOtztv5DVs900-aqtnu6pBPVd0">\n' + LD) if fn=='index.html' else ''))
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in nav)
     html = f'''<!doctype html>
 <html lang="ko">
