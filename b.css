@@ -224,3 +224,6 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* 대표 인사말: 문단 간격·줄 간격 통일 */
 .greet{line-height:1.75}
+.greet span{display:block;text-indent:1em}
+@media(max-width:819px){.greet .gbr{display:none}}
+.greet span.nw{display:inline;text-indent:0;white-space:nowrap}
