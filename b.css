@@ -9,6 +9,7 @@
 .phead h1{font-size:clamp(30px,5.4vw,52px);line-height:1.25;font-weight:800;letter-spacing:-.035em}
 .phead .sub{font-size:18px}
 .card.link{display:block}
+.section.tinted .card{background:#fff}  /* 연회색 섹션 안에서는 카드를 흰색으로 (카드가 배경에 묻히지 않게) */
 .card .more{display:inline-block;margin-top:14px;color:var(--navy);font-weight:600;font-size:16px}
 .tl{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .badges{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
