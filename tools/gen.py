@@ -211,7 +211,6 @@ about = head('사무소 소개', '처음부터 끝까지 직접 처리하는 법
       <div><dt>경력</dt><dd>(前) 외환은행<br>(前) 행정직 공무원</dd></div>
       <div><dt>자격</dt><dd>법무사 · 행정사</dd></div>
       <div><dt>소속</dt><dd>경남지방법무사회<br>대한법무사협회<br>대한행정사회</dd></div>
-      <div><dt>사무소</dt><dd>2023년부터 현 위치에서 운영중</dd></div>
     </dl>
   </div>
 </div></section>
