@@ -1,3 +1,4 @@
+import re
 # 페이지 생성기: 기획안의 메뉴 6개 구조
 # B 버전(메인, 루트): '업무별 절차' 메뉴가 있는 버전. 2026-11-01부터 메인.
 # A 버전(old/ 폴더, 보관용): '사례·후기' 메뉴가 있던 이전 버전. 검색엔진 색인 차단.
@@ -5,7 +6,7 @@
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261102g'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261102i'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -90,6 +91,11 @@ def render(fn, title, desc, body, scripts, v):
 </html>
 '''
     os.makedirs(d, exist_ok=True)
+    # 가운뎃점(·)을 고정 폭 칸에 넣어, 브라우저가 글꼴을 바꿔 그릴 때 글자 사이가 흔들리지 않게 한다 (본문 글자에만 적용)
+    head, body = html.split('<body>', 1)
+    body = ''.join(p if p.startswith('<') else p.replace('·', '<span class="d">·</span>')
+                   for p in re.split(r'(<script.*?</script>|<style.*?</style>|<[^>]*>)', body, flags=re.S))
+    html = head + '<body>' + body
     open(os.path.join(d, fn), 'w', encoding='utf-8').write(html)
 
 def head(eyebrow, h1, sub=''):
