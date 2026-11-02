@@ -344,7 +344,7 @@ def proc(id_, name, who, steps, why, note=''):
     n = f'<p class="svc-note">{note}</p>'
     return f"""<article class="svc ppanel" id="{id_}" role="tabpanel" aria-labelledby="tab-{id_}"{"" if id_==PTABS[0][0] else " hidden"}><div class="svc-h"><h2>{name}</h2></div>
 <p class="svc-who">{who}</p><ol class="pflow">{li}</ol>
-<div class="pwhy"><h3>전문가와 함께 진행하면 좋은 이유</h3><ul class="check">{wl}</ul></div>{n}</article>"""
+<div class="pwhy"><h3>전문가와 함께 진행해야 하는 이유</h3><ul class="check">{wl}</ul></div>{n}</article>"""
 TABS = '<div class="ptabs" role="tablist" aria-label="업무 선택">' + ''.join(
     f'<a role="tab" id="tab-{i}" href="#{i}" aria-controls="{i}"' + (' class="on" aria-selected="true"' if i==PTABS[0][0] else ' aria-selected="false"') + f'>{t}</a>' for i,t in PTABS) + '</div>'
 process = head('업무별 절차', '어떤 순서로 진행되는지 미리 알려 드립니다', '궁금한 업무를 눌러 전체 흐름을 확인해 보세요.') + '<section class="section"><div class="wrap">' + TABS + '<div class="ppanels">' + \
