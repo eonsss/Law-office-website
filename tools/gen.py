@@ -47,6 +47,7 @@ def render(fn, title, desc, body, scripts, v):
                f'<meta property="og:title" content="{full}">\n<meta property="og:description" content="{desc}">\n'
                f'<meta property="og:url" content="{url}">\n<meta property="og:image" content="{BASE}img/exterior.jpg">\n'
                f'<meta name="twitter:card" content="summary_large_image">\n' + (('<meta name="google-site-verification" content="zadIHAeYB25NbH-4gxOtztv5DVs900-aqtnu6pBPVd0">\n<meta name="naver-site-verification" content="bd8d376c791c13c04c627e63d4133e45f04fc222" />\n' + LD) if fn=='index.html' else ''))
+    ga = f'<script src="ga.js?v={VER}"></script>\n' if v=='B' else ''  # 방문 통계 (메인만)
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in nav)
     html = f'''<!doctype html>
 <html lang="ko">
@@ -55,7 +56,7 @@ def render(fn, title, desc, body, scripts, v):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{full}</title>
 <meta name="description" content="{desc}">
-{robots}{seo}<link rel="icon" href="{R}img/emblem.jpg">
+{robots}{seo}{ga}<link rel="icon" href="{R}img/emblem.jpg">
 <script>(function(){{if(!window.matchMedia||!matchMedia("(max-width:819px)").matches||!document.fonts)return;var d=document.documentElement;d.className+=" wf";function ok(){{d.className=d.className.replace(" wf","")}}setTimeout(ok,500);document.fonts.ready.then(ok)}})()</script>
 <link rel="stylesheet" href="{R}fonts/pretendard.css?v=1.3.9">
 <link rel="stylesheet" href="{R}style.css?v={VER}">
@@ -77,7 +78,7 @@ def render(fn, title, desc, body, scripts, v):
   <div class="wrap foot-in">
     <div class="foot-text">
     <p>유병열 법무사·행정사 사무소<br>창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br><span class="nb">전화 {TEL}</span> · <span class="nb">휴대폰 010-2851-2064</span><br>팩스 055-224-2064<br>byryu210@gmail.com</p>
-    <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>
+    <p class="copy">© 유병열 법무사·행정사 사무소. 이 사이트의 내용은 일반적인 안내이며 개별 사건에 대한 법률 판단이 아닙니다.</p>{'<p class="copy">방문 통계를 위해 Google 애널리틱스(쿠키)를 사용합니다. 개인을 식별하는 정보는 수집하지 않습니다.</p>' if v=='B' else ''}
     </div>
     <img class="foot-logo" src="{R}img/logo-square.png" alt="유병열 법무사·행정사 사무소" width="96" height="96" loading="lazy" decoding="async">
   </div>
