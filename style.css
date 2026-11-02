@@ -104,7 +104,7 @@ select:focus,input:focus{border-color:var(--navy);box-shadow:0 0 0 4px rgba(58,6
 .info{margin:24px 0 28px;display:grid;gap:0}
 .info li{display:grid;grid-template-columns:76px 1fr;padding:14px 0;border-top:1px solid var(--line);font-size:18px}
 .info li span{color:var(--ink2);font-weight:600;font-size:16px}
-.info a{color:var(--navy);font-weight:600}
+.info a,.info .fax{color:var(--navy);font-weight:600}
 .map img{width:100%;border-radius:var(--r);border:1px solid var(--line)}
 @media(min-width:820px){.visit{grid-template-columns:1fr 1fr;gap:64px}}
 

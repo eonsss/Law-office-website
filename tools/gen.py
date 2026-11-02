@@ -290,7 +290,7 @@ contact = head('상담 문의', '전화 한 통이면 충분합니다') + f'''
       <li><span>영업시간</span><div class="hours"><p><b>(평일)</b> 09시 ~ 18시</p><p><b>(주말)</b> 09시 ~ 13시</p><p class="hours-note">전화 또는 문자로 영업시간 외에도 상담 가능합니다.</p></div></li>
       <li><span>전화</span><a href="tel:0552862064">{TEL}</a></li>
       <li><span>휴대폰</span><a href="tel:01028512064">010-2851-2064</a></li>
-      <li><span>팩스</span><b class="blue">055-224-2064</b></li>
+      <li><span>팩스</span><b class="fax">055-224-2064</b></li>
       <li><span>이메일</span><a href="mailto:byryu210@gmail.com">byryu210@gmail.com</a></li>
       <li><span>블로그</span><a href="https://blog.naver.com/byryu2101" target="_blank" rel="noopener">blog.naver.com/byryu2101</a></li>
       <li><span>위치</span><div><b class="blue" id="addr">창원시 마산합포구 3·15대로 217, 2층 (중앙동 3가)<br>창원지방법원 마산지원 도보 1분</b><p class="visit-note">출장이 잦아 <b>방문 전에 전화 또는 문자로 방문 예약</b>을 하시는 것을 추천드립니다.</p></div></li>
