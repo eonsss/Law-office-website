@@ -12,6 +12,14 @@
     if (u.origin !== location.origin || !/(\.html|\/)$/.test(u.pathname)) return null;
     return u;
   }
+  // 새 페이지의 글자에 필요한 글꼴 조각을 미리 받아 둔다. 이동 후 다른 글꼴로 잠깐 보였다가 바뀌는 현상을 막는다.
+  function fontsFor(html) {
+    if (!(document.fonts && document.fonts.load)) return Promise.resolve();
+    var txt = new DOMParser().parseFromString(html, 'text/html').body.textContent.replace(/\s+/g, ' ');
+    var ws = ['400', '500', '600', '700', '800'];
+    return Promise.all(ws.map(function (w) { return document.fonts.load(w + ' 16px "Pretendard Variable"', txt); })).catch(function () {});
+  }
+  function warmFonts(html) { fontsFor(html); }
   function get(u) {
     var k = u.pathname;
     if (cache[k]) return Promise.resolve(cache[k]);
@@ -19,7 +27,7 @@
       pending[k] = fetch(k, { credentials: 'same-origin' }).then(function (r) {
         if (!r.ok) throw new Error(r.status);
         return r.text();
-      }).then(function (t) { cache[k] = t; delete pending[k]; return t; },
+      }).then(function (t) { cache[k] = t; delete pending[k]; warmFonts(t); return t; },
               function (e) { delete pending[k]; throw e; });
     }
     return pending[k];
@@ -35,6 +43,8 @@
   }
   function show(u, push) {
     return get(u).then(function (html) {
+      return Promise.race([fontsFor(html), new Promise(function (r) { setTimeout(r, 1500); })]).then(function () { return html; });
+    }).then(function (html) {
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var main = doc.querySelector('main'), cur = document.querySelector('main');
       if (!main || !cur) throw new Error('no main');
