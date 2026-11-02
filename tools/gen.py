@@ -5,7 +5,7 @@
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261101p'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261102a'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -46,7 +46,7 @@ def render(fn, title, desc, body, scripts, v):
                f'<meta property="og:site_name" content="{SITE}">\n<meta property="og:locale" content="ko_KR">\n'
                f'<meta property="og:title" content="{full}">\n<meta property="og:description" content="{desc}">\n'
                f'<meta property="og:url" content="{url}">\n<meta property="og:image" content="{BASE}img/exterior.jpg">\n'
-               f'<meta name="twitter:card" content="summary_large_image">\n' + (LD if fn=='index.html' else ''))
+               f'<meta name="twitter:card" content="summary_large_image">\n' + (('<meta name="google-site-verification" content="zadIHAeYB25NbH-4gxOt">\n' + LD) if fn=='index.html' else ''))
     menu = ''.join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in nav)
     html = f'''<!doctype html>
 <html lang="ko">
