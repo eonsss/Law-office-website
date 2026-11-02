@@ -218,7 +218,7 @@ def svc(id_, num, name, who, items, extra=''):
     li = ''.join(f'<li>{i}</li>' for i in items)
     return f'''<article class="svc reveal" id="{id_}"><div class="svc-h"><span class="num">{num}</span><h2>{name}</h2></div>
 <p class="svc-who">{who}</p><ul class="check">{li}</ul>{extra}</article>'''
-legal = head('법무사 업무', '주력 업무를 자세히 안내드립니다', '진행 방식과 비용은 사안에 따라 달라질 수 있어, 구체적인 내용은 상담 때 안내해 드립니다.') + '<section class="section"><div class="wrap svcs">' + \
+legal = head('법무사 업무', '주요 업무를 자세히 안내드립니다', '진행 방식과 비용은 사안에 따라 달라질 수 있어, 구체적인 내용은 상담 때 안내해 드립니다.') + '<section class="section"><div class="wrap svcs">' + \
   svc('auction','01','부동산 경매입찰','경매로 부동산을 사려는 분, 입찰 절차가 낯선 분','입찰 서류 작성|매수신청 대리|낙찰 후 소유권이전등기'.split('|')) + \
   svc('registry','02','부동산 등기','집을 사고팔거나 증여하는 분, 대출을 받거나 갚는 분','매매·증여에 따른 소유권이전|근저당권 설정|근저당권 말소'.split('|')) + \
   svc('rehab','03','개인회생·파산','채무 때문에 어려움을 겪는 분','신청서 작성|변제계획안 작성|필요 서류 안내와 제출 대행'.split('|'), '<p class="svc-note">상담 내용은 비밀이 유지됩니다.</p>') + \
