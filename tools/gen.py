@@ -6,7 +6,7 @@ import re
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261102j'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261102k'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -181,6 +181,13 @@ HOME_T, HOME_D = '마산 경매·개인회생·상속등기', '창원지방법�
 page('index.html', HOME_T, HOME_D, home, only='A')
 home_b = home.replace('</ol>\n  </div>\n</section>', '</ol>\n    <p class="note"><a class="tl nb" href="process.html">업무별 절차 자세히 보기</a></p>\n  </div>\n</section>', 1)
 assert home_b != home
+# 메인 구성 순서: 히어로 → 대표 인사말 → 진행 순서 → 업무 안내 → 오시는 길 (배경 색은 번갈아)
+_s = re.findall(r'<section.*?</section>', home_b, re.S)
+assert len(_s) == 5
+_hero, _svc, _about, _steps, _visit = _s
+_svc = _svc.replace('<section class="section">', '<section class="section tinted">', 1)
+_visit = _visit.replace('<section class="section tinted">', '<section class="section">', 1)
+home_b = home_b.replace(''.join([_hero, _svc, _about, _steps, _visit]), '') if False else '\n\n'.join([_hero, _about, _steps, _svc, _visit]) + '\n'
 page('index.html', HOME_T, HOME_D, home_b, only='B')
 
 # ---------- 소개
