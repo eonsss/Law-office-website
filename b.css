@@ -223,4 +223,3 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 
 /* 대표 인사말: 문단 간격·줄 간격 통일 */
 .greet{line-height:1.75}
-.greet p+p{margin-top:14px}
