@@ -6,7 +6,7 @@ import re
 import os, re
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEL = '055-286-2064'
-VER = '20261102u'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
+VER = '20261103a'  # 정적 파일 캐시를 깨기 위한 버전. 파일을 고칠 때 값을 바꾼다.
 NAV_A = [('about.html','사무소 소개'),('legal.html','법무사 업무'),('admin.html','행정사 업무'),
        ('fees.html','비용 안내'),('cases.html','사례·후기'),('contact.html','상담 문의')]
 NAV_B = [(h,t) if h!='cases.html' else ('process.html','업무별 절차') for h,t in NAV_A]
@@ -284,9 +284,10 @@ fees = head('비용 안내', '예상 보수를 미리 확인해 보세요', '대
       <div class="result" id="result" aria-live="polite"><span class="r-label">예상 기본보수 (<b class="hl">상한액</b>)</span><strong class="r-value" id="rValue">금액을 입력해 주세요</strong><span class="r-sub" id="rSub"></span></div>
     </div>
     <ul class="fine">
-      <li>표의 금액은 기본보수의 <b class="hl">상한액</b>이며, 사건의 내용에 따라 달라질 수 있습니다. 정확한 금액은 상담 후 안내해 드립니다.</li>
+      <li>표의 금액은 기본보수의 <b class="hl">상한액</b>이며, 사건의 내용에 따라 달라질 수 있습니다.</li>
       <li><b class="hl">부가가치세와 등록면허세·교육세·인지·송달료 등 공과금은 포함되지 않습니다.</b></li>
-      <li>계산 결과는 참고용입니다.</li>
+      <li>계산 결과는 참고용이며 정확한 금액은 상담 후 안내해 드립니다.</li>
+      <li>기재되지 않은 업무에 대해서는 문의 주시기 바랍니다.</li>
     </ul>
     <div class="consult reveal"><div><h3>상담 비용 안내</h3><p>개별적 상담·자문은 <b>건당 150,000원</b>,<br>계속적 상담·자문은 <b>월 600,000원</b>이<br class="mbr"> 각각 <b>상한액</b>입니다. <span class="hl2">사건을 맡기시는 경우에는 상담료가 적용되지 않습니다.</span></p></div></div>
 </div></section>
