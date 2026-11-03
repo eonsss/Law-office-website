@@ -53,7 +53,6 @@
 /* 영업시간 파랗게 */
 .hours,.hours p,.hours b,.hours-note{color:var(--navy)!important}
 .hours p{font-weight:700}
-.hours .hd{font-weight:400}
 .hours-note{font-weight:600!important}
 /* 헤더 버튼 */
 .hbtns{display:flex;gap:8px}
